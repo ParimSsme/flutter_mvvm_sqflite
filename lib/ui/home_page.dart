@@ -56,17 +56,14 @@ class _HomePageState extends State<HomePage> {
           elevation: 10,
           child: Padding(
             padding: EdgeInsets.all(10.0),
-            child: GestureDetector(
-              onTap: () {},
-              child: Column(
-                children: [
-                  Image(image: AssetImage(
-                      'assets/images/${list[index].image}.jpg',),
-                    height: 130,
-                  ),
-                  Text(list[index].name),
-                ],
-              ),
+            child: Column(
+              children: [
+                Image(image: AssetImage(
+                    'assets/images/${list[index].image}.jpg',),
+                  height: 130,
+                ),
+                Text(list[index].name),
+              ],
             ),
           ),
         ));
