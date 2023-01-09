@@ -12,6 +12,6 @@ class AppColors{
 
   static const Color white = Color(0xFFE8EEF3);
 
-  static const Color textFieldColor = Color(0xfdd9d0d0);
+  static const Color headlineText = Color(0xfd363434);
 
 }

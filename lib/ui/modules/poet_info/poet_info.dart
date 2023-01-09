@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
 
 import '../../../data/models/Poet.dart';
 import '../../../data/services/poet_services.dart';
@@ -47,7 +48,8 @@ class _PoetInfoScreenState extends State<PoetInfoScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text(title)),
+        title: Text(title,
+          style: AppTheme.light.appBarTheme.textTheme?.headline3),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -58,8 +60,16 @@ class _PoetInfoScreenState extends State<PoetInfoScreen> {
                 'assets/images/${poet.image}.jpg',),
                 height: 140,
               ),
-              Text(poet.name ?? "", textAlign: TextAlign.center),
-              Text(poet.info ?? "", textAlign: TextAlign.center),
+              SizedBox(height: 5),
+              Text(poet.name ?? "",
+                  textAlign: TextAlign.center,
+                style: AppTheme.light.textTheme.headline1,
+              ),
+              SizedBox(height: 15),
+              Text(poet.info ?? "",
+                  textAlign: TextAlign.right,
+                  style: AppTheme.light.textTheme.bodyText1
+              ),
             ],
           ),
         )

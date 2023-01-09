@@ -17,19 +17,30 @@ class AppTheme {
         elevation: 0,
         color: AppColors.primary,
         shadowColor: AppColors.primary,
-        iconTheme: IconThemeData(color: AppColors.white),
+        iconTheme: IconThemeData(
+            color: AppColors.white,
+            size: 30
+        ),
+        textTheme:TextTheme(
+          headline3: TextStyle(
+            color: AppColors.white,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            fontStyle: FontStyle.normal,
+          )
+        )
       ),
       textTheme: const TextTheme(
         headline1: TextStyle(
-          color: AppColors.textFieldColor,
-          fontSize: null,
-          fontWeight: FontWeight.w400,
+          color: AppColors.headlineText,
+          fontSize: 28,
+          fontWeight: FontWeight.bold,
           fontStyle: FontStyle.normal,
         ),
         headline2: TextStyle(
           color: Color(0x8a000000),
-          fontSize: null,
-          fontWeight: FontWeight.w400,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
           fontStyle: FontStyle.normal,
         ),
         headline3: TextStyle(
@@ -64,7 +75,7 @@ class AppTheme {
         ),
         bodyText1: TextStyle(
           color: Color(0xdd000000),
-          fontSize: null,
+          fontSize: 20,
           fontWeight: FontWeight.w400,
           fontStyle: FontStyle.normal,
         ),
