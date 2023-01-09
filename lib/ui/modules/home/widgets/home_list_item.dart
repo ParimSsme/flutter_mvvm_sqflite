@@ -3,6 +3,7 @@ import 'package:sqflite_mvvm_design/core/resources/app_colors.dart';
 
 import '../../../../data/models/Poet.dart';
 import '../../../widgets/app_icon_button.dart';
+import '../../poet_edit/poet_edit.dart';
 import '../../poet_info/poet_info.dart';
 
 Widget HomeListItem(
@@ -56,15 +57,25 @@ Widget HomeListItem(
                 Expanded(
                   flex: 1,
                   child: AppIconButton(
-                    icon: Icons.add_circle,
-                    onPress:(){},
+                    icon: Icons.edit,
+                    onPress:(){
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) =>
+                              PoetEditScreen(title: poet.name ?? "",
+                                  poetId: poet.id ?? 0)));
+                    },
                   ),
                 ),
                 Expanded(
                   flex: 1,
                   child: AppIconButton(
-                    icon: Icons.add_circle,
-                    onPress:(){},
+                    icon: Icons.info_outline_rounded,
+                    onPress:(){
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) =>
+                              PoetInfoScreen(title: poet.name ?? "",
+                                  poetId: poet.id ?? 0)));
+                    },
                   ),
                 ),
               ],
