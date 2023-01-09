@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/data/models/Poet.dart';
 import 'package:sqflite_mvvm_design/ui/poet_info.dart';
-import '../data/DBHelper.dart';
+import '../data/services/user_services.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,13 +9,28 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  DBHelper helper = DBHelper();
-  List<Poet> list = [];
+  late List<Poet> _userList = <Poet>[];
+  final _userService = UserService();
+
+  getAllUserDetails() async {
+    var users = await _userService.readAllUsers();
+    _userList = <Poet>[];
+    users.forEach((user) {
+      setState(() {
+        var userModel = Poet();
+        userModel.id = user['id'];
+        userModel.name = user['name'];
+        userModel.info = user['info'];
+        userModel.image = user['image'];
+        _userList.add(userModel);
+      });
+    });
+  }
 
   @override
   void initState() {
+    getAllUserDetails();
     super.initState();
-    _getPoetList();
   }
 
   @override
@@ -33,7 +48,7 @@ class _HomePageState extends State<HomePage> {
           scrollDirection: Axis.vertical,
           crossAxisSpacing: 10,
           mainAxisSpacing: 20,
-          children: List.generate(list.length, (index) {
+          children: List.generate(_userList.length, (index) {
             return Expanded(
               child: HomeItem(index, context),
             );
@@ -50,7 +65,7 @@ class _HomePageState extends State<HomePage> {
         onTap: () => {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) =>
-                  PoetInfoScreen(title: list[index].name, poetId: index+1)))
+                  PoetInfoScreen(title: _userList[index].name ?? "", poetId: index+1)))
         },
         child: Card(
           elevation: 10,
@@ -59,19 +74,19 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 Image(image: AssetImage(
-                    'assets/images/${list[index].image}.jpg',),
+                    'assets/images/${_userList[index].image}.jpg',),
                   height: 130,
                 ),
-                Text(list[index].name),
+                Text(_userList[index].name ?? ""),
               ],
             ),
           ),
         ));
   }
 
-  void _getPoetList() {
-    helper.getPoets().then((resultat) {
-      setState(() => list = resultat);
-    });
-  }
+  // void _getPoetList() {
+  //   helper.getPoets().then((resultat) {
+  //     setState(() => list = resultat);
+  //   });
+  // }
 }

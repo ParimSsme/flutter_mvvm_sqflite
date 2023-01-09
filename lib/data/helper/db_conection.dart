@@ -1,14 +1,15 @@
 import 'dart:io';
+
 import 'package:flutter/services.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'models/Poet.dart';
 
-class DBHelper {
+
+class DBConnection {
   // Singleton pattern
-  static final DBHelper _databaseService = DBHelper._internal();
-  factory DBHelper() => _databaseService;
-  DBHelper._internal();
+  static final DBConnection _databaseService = DBConnection._internal();
+  factory DBConnection() => _databaseService;
+  DBConnection._internal();
 
   static Database? _database;
   Future<Database> get database async {
@@ -33,17 +34,17 @@ class DBHelper {
     return await openDatabase(dbPath);
   }
 
-  Future<List<Poet>> getPoets() async {
-    final db = await _databaseService.database;
-    final List<Map<String, dynamic>> maps = await db.query(Poet.tableKey);
-    return List.generate(maps.length, (index) => Poet.fromMap(maps[index]));
-  }
-
-  Future<Poet> getPoetInfo(int id) async {
-    final db = await _databaseService.database;
-    final List<Map<String, dynamic>> maps = await db.query(Poet.tableKey,
-        where: '${Poet.idKey} = ?', whereArgs: [id.toString()]);
-    return Poet.fromMap(maps[0]);
-  }
-
+  // Future<Database> setDatabase() async {
+  //   var dbDir = await getDatabasesPath();
+  //   var dbPath = join(dbDir, "data.db");
+  //   var database =
+  //   await openDatabase(dbPath, version: 1, onCreate: _createDatabase);
+  //   return database;
+  // }
+  //
+  // Future<void> _createDatabase(Database database, int version) async {
+  //   String sql =
+  //       "CREATE TABLE users (id INTEGER PRIMARY KEY,name TEXT,contact Text,description TEXT);";
+  //   await database.execute(sql);
+  // }
 }

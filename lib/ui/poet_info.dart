@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../data/DBHelper.dart';
-
 class PoetInfoScreen extends StatefulWidget {
 
   final String title;
@@ -21,13 +19,13 @@ class _PoetInfoScreenState extends State<PoetInfoScreen> {
   int poetId;
   _PoetInfoScreenState(this.title, this.poetId);
 
-  DBHelper helper = DBHelper();
+  // DBHelper helper = DBHelper();
   var poet;
 
   @override
   void initState() {
     super.initState();
-    _getPoetInfo();
+    // _getPoetInfo();
   }
 
   @override
@@ -55,9 +53,9 @@ class _PoetInfoScreenState extends State<PoetInfoScreen> {
     );
   }
 
-  void _getPoetInfo() {
-    helper.getPoetInfo(poetId).then((result) {
-      setState(() => poet = result);
-    });
-  }
+  // void _getPoetInfo() {
+  //   helper.getPoetInfo(poetId).then((result) {
+  //     setState(() => poet = result);
+  //   });
+  // }
 }
