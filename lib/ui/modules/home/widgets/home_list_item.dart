@@ -42,7 +42,7 @@ Widget HomeListItem(
           width: itemWidth-40,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: AppColors.designColor,
+            color: AppColors.primary,
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,

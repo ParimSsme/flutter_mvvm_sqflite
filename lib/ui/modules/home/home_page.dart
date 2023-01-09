@@ -43,6 +43,7 @@ class _HomePageState extends State<HomePage> {
     final double itemWidth = size.width / 2;
 
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
