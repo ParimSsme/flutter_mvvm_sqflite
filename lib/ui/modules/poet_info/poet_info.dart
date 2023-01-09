@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../data/models/Poet.dart';
+import '../../../data/services/poet_services.dart';
+
 class PoetInfoScreen extends StatefulWidget {
 
   final String title;
@@ -19,13 +22,24 @@ class _PoetInfoScreenState extends State<PoetInfoScreen> {
   int poetId;
   _PoetInfoScreenState(this.title, this.poetId);
 
-  // DBHelper helper = DBHelper();
-  var poet;
+  final _poetService = PoetService();
+  Poet poet = Poet();
+
+  _getPoetInfo() {
+    _poetService.readPoetById(poetId).then((result) {
+      setState(() {
+        poet.id = result[0]['id'];
+        poet.name = result[0]['name'];
+        poet.info = result[0]['info'];
+        poet.image = result[0]['image'];
+      });
+    });
+  }
 
   @override
   void initState() {
+    _getPoetInfo();
     super.initState();
-    // _getPoetInfo();
   }
 
   @override
@@ -44,18 +58,12 @@ class _PoetInfoScreenState extends State<PoetInfoScreen> {
                 'assets/images/${poet.image}.jpg',),
                 height: 140,
               ),
-              Text(poet.name, textAlign: TextAlign.center),
-              Text(poet.info, textAlign: TextAlign.center),
+              Text(poet.name ?? "", textAlign: TextAlign.center),
+              Text(poet.info ?? "", textAlign: TextAlign.center),
             ],
           ),
         )
       )
     );
   }
-
-  // void _getPoetInfo() {
-  //   helper.getPoetInfo(poetId).then((result) {
-  //     setState(() => poet = result);
-  //   });
-  // }
 }

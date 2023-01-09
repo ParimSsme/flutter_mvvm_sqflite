@@ -21,7 +21,7 @@ class Repository
   //Read a Single Record By ID
   readDataById(table, itemId) async {
     _database = await _databaseService.database;
-    return await _database?.query(table, where: 'id=?', whereArgs: [itemId]);
+    return await _database?.query('poet', where: 'id=?', whereArgs: [itemId]);
   }
   //Update User
   updateData(table, data) async {

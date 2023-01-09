@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:sqflite_mvvm_design/ui/home_page.dart';
+import 'package:sqflite_mvvm_design/ui/modules/home/home_page.dart';
 import 'package:sqflite_mvvm_design/ui/splash_screen.dart';
 
 void main() {
