@@ -35,24 +35,36 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    var size = MediaQuery.of(context).size;
+
+    /*24 is for notification bar on Android*/
+    const double itemHeight = 350;
+    final double itemWidth = size.width / 2;
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text("شاعران")),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: GridView.count(
-          shrinkWrap: true,
-          crossAxisCount: 2,
-          physics: const ClampingScrollPhysics(),
-          scrollDirection: Axis.vertical,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 20,
-          children: List.generate(_poetList.length, (index) {
-            return Expanded(
-              child: HomeListItem(context, _poetList[index]),
-            );
-          }
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: GridView.count(
+            shrinkWrap: true,
+            childAspectRatio: (itemWidth/itemHeight),
+            crossAxisCount: 2,
+            physics: const ClampingScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 20,
+            children: List.generate(_poetList.length, (index) {
+              return Expanded(
+                child: HomeListItem(
+                    context,
+                    _poetList[index],
+                    itemHeight,
+                    itemWidth
+                ),
+              );
+            }
+            ),
           ),
         ),
       ),
