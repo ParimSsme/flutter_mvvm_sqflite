@@ -9,7 +9,6 @@ class PoetService
     _repository = Repository();
   }
 
-  //Save User
   SavePoet(Poet poet) async{
     return await _repository.insertData(
         ServiceConstants.poetTable,
@@ -17,19 +16,16 @@ class PoetService
     );
   }
 
-  //Read All Users
   readAllPoets() async{
     return await _repository.readData(ServiceConstants.poetTable);
   }
 
-  //Read All Users
   readPoetById(int id) async {
     return await _repository.readDataById(
         ServiceConstants.poetTable, id
     );
   }
 
-  //Edit User
   updatePoet(Poet poet) async {
     return await _repository.updateData(
         ServiceConstants.poetTable,
