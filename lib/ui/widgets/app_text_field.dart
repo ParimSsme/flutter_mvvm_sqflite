@@ -8,6 +8,7 @@ class AppTextField extends StatelessWidget {
   final Icon? prefixIcon;
   final Function(String) onSubmit;
   final bool? isReadOnly;
+  final bool? isMultiline;
   final Function()? onTapped;
 
   const AppTextField({Key? key,
@@ -17,7 +18,8 @@ class AppTextField extends StatelessWidget {
     this.onTapped,
     this.prefixIcon,
     this.label,
-    this.isReadOnly
+    this.isReadOnly,
+    this.isMultiline
   }) : super(key: key);
 
   @override
@@ -28,6 +30,8 @@ class AppTextField extends StatelessWidget {
         Text(label ?? "",),
         const SizedBox(height: 5),
         TextField(
+          maxLines: (isMultiline ?? false) ? 10 : 1,
+          textAlign: TextAlign.right,
           decoration: InputDecoration(
               contentPadding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10),
               prefixIcon: prefixIcon,

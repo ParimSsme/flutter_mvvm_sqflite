@@ -3,6 +3,7 @@ import 'package:sqflite_mvvm_design/ui/widgets/app_text_field.dart';
 
 import '../../../data/models/Poet.dart';
 import '../../../data/services/poet_services.dart';
+import '../../widgets/app_button.dart';
 
 class PoetEditScreen extends StatefulWidget {
 
@@ -66,8 +67,16 @@ class _PoetEditScreenState extends State<PoetEditScreen> {
 
               AppTextField(
                 hint: poet.info ?? "",
+                isMultiline: true,
                 onSubmit: (String) {  },
               ),
+
+              AppButton(
+                onPress: () {
+
+                },
+                text: "Edit",
+              )
             ],
           ),
         )
