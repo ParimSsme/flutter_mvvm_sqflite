@@ -61,19 +61,25 @@ class _PoetEditScreenState extends State<PoetEditScreen> {
                 height: 140,
               ),
               AppTextField(
-                hint: poet.name ?? "",
-                onSubmit: (String) {  },
+                hint: "نام",
+                value: poet.name ?? "",
+                onSubmit: (newVal) {
+                  poet.name = newVal;
+                },
               ),
 
               AppTextField(
-                hint: poet.info ?? "",
+                hint: "توضیحات",
+                value: poet.info ?? "",
                 isMultiline: true,
-                onSubmit: (String) {  },
+                onSubmit: (newVal) {
+                  poet.info = newVal;
+                },
               ),
 
               AppButton(
                 onPress: () {
-
+                  updatePoet();
                 },
                 text: "Edit",
               )
@@ -82,5 +88,12 @@ class _PoetEditScreenState extends State<PoetEditScreen> {
         )
       )
     );
+  }
+
+
+  void updatePoet() async {
+    await _poetService.updatePoet(poet).then((result) {
+
+    });
   }
 }

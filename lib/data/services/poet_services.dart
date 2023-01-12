@@ -10,10 +10,10 @@ class PoetService
   }
 
   //Save User
-  SavePoet(Poet user) async{
+  SavePoet(Poet poet) async{
     return await _repository.insertData(
         ServiceConstants.poetTable,
-        user.poetMap()
+        poet.poetMap()
     );
   }
 
@@ -30,17 +30,17 @@ class PoetService
   }
 
   //Edit User
-  UpdatePoet(Poet user) async{
+  updatePoet(Poet poet) async {
     return await _repository.updateData(
         ServiceConstants.poetTable,
-        user.poetMap()
+        poet.poetMap()
     );
   }
 
-  deletePoet(userId) async {
+  deletePoet(poetId) async {
     return await _repository.deleteDataById(
         ServiceConstants.poetTable,
-        userId
+        poetId
     );
   }
 
