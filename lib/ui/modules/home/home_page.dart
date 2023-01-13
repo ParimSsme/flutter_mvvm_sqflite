@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                     context,
                     _poetList[index],
                     itemHeight,
-                    itemWidth
+                    itemWidth,
                 ),
               );
             }
