@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
 import 'package:sqflite_mvvm_design/core/resources/app_colors.dart';
 import '../../../../data/models/Poet.dart';
 import '../../../widgets/app_icon_button.dart';
@@ -26,20 +27,22 @@ Widget HomeListItem(
               children: [
                 Image(image: AssetImage(
                   'assets/images/${poet.image}.jpg',),
-                  height: 130,
+                  height: 110,
                 ),
-                Text(poet.name ?? ""),
+                Text(poet.name ?? "",
+                  style: AppTheme.light.textTheme.bodyText1,
+                ),
               ],
             ),
           ),
         ),
       ),
       Positioned(
-        bottom: -10,
+        bottom: 7,
         left: 20,
         right: 20,
         child: Container(
-          height: 70,
+          height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: AppColors.primary,

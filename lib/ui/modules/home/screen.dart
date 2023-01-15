@@ -29,7 +29,7 @@ class _HomeScreenState extends ViewState<HomeScreen, HomeScreenViewModel> {
     var size = MediaQuery.of(context).size;
 
     /*24 is for notification bar on Android*/
-    const double itemHeight = 350;
+    const double itemHeight = 250;
     final double itemWidth = size.width / 2;
 
     return StreamBuilder<HomeScreenState>(
