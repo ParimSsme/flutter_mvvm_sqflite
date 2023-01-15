@@ -5,7 +5,6 @@ import 'package:sqflite_mvvm_design/data/models/Poet.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/viewmodel.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/home_list_item.dart';
 import '../../../core/base/view.dart';
-import '../../../data/services/poet_services.dart';
 
 class HomeScreen extends View<HomeScreenViewModel> {
   const HomeScreen({required HomeScreenViewModel viewModel, Key? key})
@@ -62,7 +61,10 @@ class _HomeScreenState extends ViewState<HomeScreen, HomeScreenViewModel> {
                         state.poets?[index] ?? Poet(),
                         itemHeight,
                         itemWidth,
-                            (){}
+                        viewModel.onClickDelete(),
+                          () {
+                          viewModel.onClickInfo(state.poets?[index] ?? Poet());
+                          },
                     ),
                   );
                 }

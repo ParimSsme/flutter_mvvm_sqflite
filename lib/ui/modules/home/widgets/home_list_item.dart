@@ -9,7 +9,8 @@ Widget HomeListItem(
     Poet poet,
     double itemHeight,
     double itemWidth,
-    void Function() onDelete
+    void Function() onClickDelete,
+    void Function() onClickInfo
 ) {
   return Stack(
     children: [
@@ -48,7 +49,10 @@ Widget HomeListItem(
                 AppIconButton(
                   icon: Icons.delete_outline,
                   onPress:(){
-                    _showMyDialog(context, poet.id ?? null, onDelete);
+                    _showMyDialog(context,
+                        poet.id ?? null,
+                        onClickDelete
+                    );
                   },
                 ),
                 AppIconButton(
@@ -59,10 +63,7 @@ Widget HomeListItem(
                 AppIconButton(
                   icon: Icons.info_outline_rounded,
                   onPress:(){
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>
-                            PoetInfoScreen(title: poet.name ?? "",
-                                poetId: poet.id ?? 0)));
+                    onClickInfo();
                   },
                 ),
               ],
@@ -76,7 +77,7 @@ Widget HomeListItem(
 Future<void> _showMyDialog(
     BuildContext context,
     int? poetId,
-    void Function() onDelete
+    void Function() onClickDelete,
 ) async {
   return showDialog<void>(
     context: context,
@@ -101,6 +102,7 @@ Future<void> _showMyDialog(
           TextButton(
             child: const Text('تایید'),
             onPressed: () {
+              onClickDelete();
               Navigator.of(context).pop();
             },
           ),

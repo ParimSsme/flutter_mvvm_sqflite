@@ -39,9 +39,26 @@ class HomeScreenViewModel extends BaseViewModel {
   }
 
 
+  void onClickInfo(Poet poet) {
+    _routesSubject.add(
+      AppRouteSpec(
+        name: '/poet_info',
+        arguments: {
+          'poet': poet
+        },
+      ),
+    );
+  }
+
+  onClickDelete()  {
+    // final poetService = PoetService();
+    // await poetService.deletePoet(0);
+    // await getAllPoets();
+  }
+
   getAllPoets() async {
-    final _poetService = PoetService();
-    List<Poet> poets = await _poetService.readAllPoets();
+    final poetService = PoetService();
+    List<Poet> poets = await poetService.readAllPoets();
     updateList(poets);
   }
 

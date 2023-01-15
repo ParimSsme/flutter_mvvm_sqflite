@@ -11,7 +11,7 @@ class Poet {
     mapping[PoetColumns.id.value] = id;
     mapping[PoetColumns.name.name] = name;
     mapping[PoetColumns.info.value] = info;
-    mapping[PoetColumns.image.value] = image!;
+    mapping[PoetColumns.image.value] = image;
     return mapping;
   }
 }

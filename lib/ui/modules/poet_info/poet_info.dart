@@ -1,78 +1,66 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
+import 'package:sqflite_mvvm_design/ui/modules/poet_info/viewmodel.dart';
+import '../../../core/base/view.dart';
 import '../../../data/models/Poet.dart';
 import '../../../data/services/poet_services.dart';
 
-class PoetInfoScreen extends StatefulWidget {
+class PoetInfoScreen extends View<PoetInfoScreenViewModel> {
 
-  final String title;
-  final int poetId;
-
-  const PoetInfoScreen({required this.title, required this.poetId});
+  const PoetInfoScreen({required PoetInfoScreenViewModel viewModel, Key? key})
+      : super.model(viewModel, key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return _PoetInfoScreenState(this.title, this.poetId);
-  }
+  _PoetInfoScreenState createState() => _PoetInfoScreenState(viewModel);
 }
 
-class _PoetInfoScreenState extends State<PoetInfoScreen> {
-
-  String title;
-  int poetId;
-  _PoetInfoScreenState(this.title, this.poetId);
-
-  final _poetService = PoetService();
-  Poet poet = Poet();
-
-  _getPoetInfo() {
-    _poetService.readPoetById(poetId).then((result) {
-      setState(() {
-        poet.id = result[0]['id'];
-        poet.name = result[0]['name'];
-        poet.info = result[0]['info'];
-        poet.image = result[0]['image'];
-      });
-    });
-  }
+class _PoetInfoScreenState extends ViewState<PoetInfoScreen, PoetInfoScreenViewModel> {
+  _PoetInfoScreenState(PoetInfoScreenViewModel viewModel) : super(viewModel);
 
   @override
   void initState() {
-    _getPoetInfo();
     super.initState();
+    listenToRoutesSpecs(viewModel.routes);
   }
 
   @override
   Widget build(BuildContext context) {
+    return StreamBuilder<PoetInfoScreenState>(
+      stream: viewModel.state,
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) return Container();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title,
-          style: AppTheme.light.appBarTheme.textTheme?.headline3),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Image(image: AssetImage(
-                'assets/images/${poet.image}.jpg',),
-                height: 140,
-              ),
-              SizedBox(height: 5),
-              Text(poet.name ?? "",
-                  textAlign: TextAlign.center,
-                style: AppTheme.light.textTheme.headline1,
-              ),
-              SizedBox(height: 15),
-              Text(poet.info ?? "",
-                  textAlign: TextAlign.right,
-                  style: AppTheme.light.textTheme.bodyText1
-              ),
-            ],
+        final state = snapshot.data!;
+
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Home Page'),
           ),
-        )
-      )
+          body: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Image(image: AssetImage(
+                      'assets/images/${state.poet?.image}.jpg',),
+                      height: 140,
+                    ),
+                    SizedBox(height: 5),
+                    Text(state.poet?.name ?? "",
+                      textAlign: TextAlign.center,
+                      style: AppTheme.light.textTheme.headline1,
+                    ),
+                    SizedBox(height: 15),
+                    Text(state.poet?.info ?? "",
+                        textAlign: TextAlign.right,
+                        style: AppTheme.light.textTheme.bodyText1
+                    ),
+                  ],
+                ),
+              )
+          ),
+        );
+      },
     );
   }
 }
