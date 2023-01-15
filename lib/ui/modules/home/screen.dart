@@ -7,6 +7,7 @@ import 'package:sqflite_mvvm_design/ui/modules/home/viewmodel.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/add_poet_dialogue.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/home_list_item.dart';
 import '../../../core/base/view.dart';
+import 'im.dart';
 
 class HomeScreen extends View<HomeScreenViewModel> {
   const HomeScreen({required HomeScreenViewModel viewModel, Key? key})
@@ -79,9 +80,14 @@ class _HomeScreenState extends ViewState<HomeScreen, HomeScreenViewModel> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              Dialog dialog = AddPoetDialogue();
-              showDialog(
-                  context: context, builder: (BuildContext context) => dialog);
+              // Dialog dialog = AddPoetDialogue();
+              // showDialog(
+              //     context: context, builder: (BuildContext context) => dialog);
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MyPage()),
+              );
             },// Add your onPressed code here!},
             backgroundColor: AppColors.primary,
             child: const Icon(Icons.add),
