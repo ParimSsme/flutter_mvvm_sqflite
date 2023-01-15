@@ -12,14 +12,14 @@ class ResponseBody {
     switch (table) {
       case DatabaseTables.poet:
         Poet model = Poet();
-        model.id = map['id'];
-        model.name = map['name'];
-        model.info = map['info'];
-        model.image = map['image'];
+        model.id = map[PoetColumns.id.name];
+        model.name = map[PoetColumns.name.name];
+        model.info = map[PoetColumns.info.name];
+        model.image = map[PoetColumns.image.name];
         return model;
 
       default:
-        throw Exception('Route not implemented');
+        throw Exception('table not exist');
     }
   }
 
