@@ -12,6 +12,7 @@ Widget HomeListItem(
     Poet poet,
     double itemHeight,
     double itemWidth,
+    void Function() onDelete
 ) {
   return Stack(
     children: [
@@ -53,7 +54,7 @@ Widget HomeListItem(
                   child: AppIconButton(
                     icon: Icons.delete_outline,
                     onPress:(){
-                      _showMyDialog(context, poet.id ?? null);
+                      _showMyDialog(context, poet.id ?? null, onDelete);
                     },
                   ),
                 ),
@@ -90,8 +91,9 @@ Widget HomeListItem(
 }
 
 Future<void> _showMyDialog(
-  BuildContext context,
-    int? poetId
+    BuildContext context,
+    int? poetId,
+    void Function() onDelete
 ) async {
   return showDialog<void>(
     context: context,
@@ -116,8 +118,6 @@ Future<void> _showMyDialog(
           TextButton(
             child: const Text('تایید'),
             onPressed: () {
-              final _poetService = PoetService();
-              _poetService.deletePoet(poetId);
               Navigator.of(context).pop();
             },
           ),

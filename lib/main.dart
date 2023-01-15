@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/home_page.dart';
-import 'package:sqflite_mvvm_design/ui/splash_screen.dart';
+import 'package:sqflite_mvvm_design/ui/modules/splash_screen.dart';
 
 void main() {
   runApp(MyApp());

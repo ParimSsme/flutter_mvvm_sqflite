@@ -30,6 +30,20 @@ class AppTheme {
           )
         )
       ),
+      buttonTheme: const ButtonThemeData(
+        textTheme: ButtonTextTheme.normal,
+        minWidth: 88,
+        height: 36,
+        padding: EdgeInsets.only(top: 0, bottom: 0, left: 16, right: 16),
+        shape: RoundedRectangleBorder(
+          side: BorderSide(
+            color: Color(0xff000000),
+            width: 0,
+            style: BorderStyle.none,
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(2.0)),
+        ),
+      ),
       textTheme: const TextTheme(
         headline1: TextStyle(
           color: AppColors.headlineText,
