@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sqflite_mvvm_design/ui/widgets/app_text_field.dart';
 
 Dialog AddPoetDialogue() {
   return Dialog(
@@ -11,40 +12,17 @@ Dialog AddPoetDialogue() {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           ClipRRect(
-            child: Image.asset(
-              "assets/images/water1.jpg",
-              width: double.infinity,
-              height: 180,
-              fit: BoxFit.cover,
-            ),
+            child: Icon(Icons.person),
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(16), topRight: Radius.circular(16)),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 16),
-            width: 200,
-            padding: EdgeInsets.symmetric(horizontal: 8),
-            height: 50,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                    onTap: () {
-                    },
-                    child:Image.asset("assets/images/subtraction.png",width: 30,height: 30,)),
-                Text(
-                  "1",
-                  style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.brown),
-                ),
-                GestureDetector(
-                    onTap: () {
-                    },
-                    child:Image.asset("assets/images/add.png",width: 30,height: 30,)),
-              ],
-            ),
+          AppTextField(
+              hint: "Enter name",
+              onSubmit: (val){}
+          ),
+          AppTextField(
+              hint: "Enter info",
+              onSubmit: (val){}
           ),
           Expanded(child: Container()),
           Row(
