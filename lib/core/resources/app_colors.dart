@@ -14,4 +14,8 @@ class AppColors{
 
   static const Color headlineText = Color(0xfd363434);
 
+  static const Color black = Color(0xfd363434);
+
+  static const Color gray = Color(0xfd9d9797);
+
 }

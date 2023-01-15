@@ -55,7 +55,7 @@ class _PoetEditScreenState extends ViewState<PoetEditScreen, PoetEditScreenViewM
                   AppTextField(
                     hint: "توضیحات",
                     value: state.poet?.info ?? "",
-                    isMultiline: true,
+                    maxLines: 20,
                     onSubmit: (newVal) {
                       state.poet?.info = newVal;
                     },

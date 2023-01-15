@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sqflite_mvvm_design/core/resources/app_colors.dart';
 
 class AppButton extends StatelessWidget {
   /// text to be used as button text
@@ -15,7 +16,14 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+          primary: AppColors.primary,
+          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+          textStyle: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold)
+      ),
       onPressed: () => onPress(),
       child: Text(text),
     );
