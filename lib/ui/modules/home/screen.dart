@@ -65,6 +65,9 @@ class _HomeScreenState extends ViewState<HomeScreen, HomeScreenViewModel> {
                           () {
                           viewModel.onClickInfo(state.poets?[index] ?? Poet());
                           },
+                          () {
+                          viewModel.onClickEdit(state.poets?[index] ?? Poet());
+                          },
                     ),
                   );
                 }

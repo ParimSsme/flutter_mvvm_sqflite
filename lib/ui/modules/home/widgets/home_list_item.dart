@@ -10,7 +10,8 @@ Widget HomeListItem(
     double itemHeight,
     double itemWidth,
     void Function() onClickDelete,
-    void Function() onClickInfo
+    void Function() onClickInfo,
+    void Function() onClickEdit
 ) {
   return Stack(
     children: [
@@ -58,6 +59,7 @@ Widget HomeListItem(
                 AppIconButton(
                   icon: Icons.edit,
                   onPress:(){
+                    onClickEdit();
                   },
                 ),
                 AppIconButton(

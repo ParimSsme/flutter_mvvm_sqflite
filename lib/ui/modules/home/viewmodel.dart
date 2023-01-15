@@ -50,6 +50,17 @@ class HomeScreenViewModel extends BaseViewModel {
     );
   }
 
+  void onClickEdit(Poet poet) {
+    _routesSubject.add(
+      AppRouteSpec(
+        name: '/poet_edit',
+        arguments: {
+          'poet': poet
+        },
+      ),
+    );
+  }
+
   onClickDelete()  {
     // final poetService = PoetService();
     // await poetService.deletePoet(0);
