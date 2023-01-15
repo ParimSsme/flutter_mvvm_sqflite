@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sqflite_mvvm_design/core/enums/database_tables.dart';
+import 'package:sqflite_mvvm_design/data/helper/response_body.dart';
 import 'package:sqflite_mvvm_design/data/models/Poet.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/viewmodel.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/home_list_item.dart';
@@ -20,17 +22,9 @@ class _HomeScreenState extends ViewState<HomeScreen, HomeScreenViewModel> {
   final _poetService = PoetService();
 
   getAllUserDetails() async {
-    var poets = await _poetService.readAllPoets();
-    _poetList = <Poet>[];
-    poets.forEach((poet) {
-      setState(() {
-        var poetModel = Poet();
-        poetModel.id = poet['id'];
-        poetModel.name = poet['name'];
-        poetModel.info = poet['info'];
-        poetModel.image = poet['image'];
-        _poetList.add(poetModel);
-      });
+    List<Poet> poets = await _poetService.readAllPoets();
+    setState(() {
+      _poetList.addAll(poets);
     });
   }
 

@@ -1,6 +1,7 @@
 import 'package:sqflite_mvvm_design/core/enums/database_tables.dart';
 import 'package:sqflite_mvvm_design/data/models/Poet.dart';
 import '../helper/repository.dart';
+import '../helper/response_body.dart';
 
 class PoetService
 {
@@ -16,8 +17,14 @@ class PoetService
     );
   }
 
-  readAllPoets() async{
-    return await _repository.readData(DatabaseTables.poet.value);
+  Future<List<Poet>> readAllPoets() async {
+    List<Poet> poetList = <Poet>[];
+    var result = await _repository.readData(DatabaseTables.poet.value);
+    result.forEach((map) {
+      Poet poet = ResponseBody.body(DatabaseTables.poet, map);
+      poetList.add(poet);
+    });
+    return poetList;
   }
 
   readPoetById(int id) async {
