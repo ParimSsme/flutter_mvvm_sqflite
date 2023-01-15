@@ -1,99 +1,80 @@
 import 'package:flutter/material.dart';
+import 'package:sqflite_mvvm_design/ui/modules/poet_edit/viewmodel.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_text_field.dart';
 
+import '../../../core/base/view.dart';
 import '../../../data/models/Poet.dart';
 import '../../../data/services/poet_services.dart';
 import '../../widgets/app_button.dart';
 
-class PoetEditScreen extends StatefulWidget {
+class PoetEditScreen extends View<PoetEditScreenViewModel> {
 
-  final String title;
-  final int poetId;
-
-  const PoetEditScreen({required this.title, required this.poetId});
+  const PoetEditScreen({required PoetEditScreenViewModel viewModel, Key? key})
+      : super.model(viewModel, key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return _PoetEditScreenState(this.title, this.poetId);
-  }
+  _PoetEditScreenState createState() => _PoetEditScreenState(viewModel);
 }
 
-class _PoetEditScreenState extends State<PoetEditScreen> {
-
-  String title;
-  int poetId;
-  _PoetEditScreenState(this.title, this.poetId);
-
-  final _poetService = PoetService();
-  Poet poet = Poet();
-
-  _getPoetInfo() {
-    _poetService.readPoetById(poetId).then((result) {
-      setState(() {
-        poet.id = result[0]['id'];
-        poet.name = result[0]['name'];
-        poet.info = result[0]['info'];
-        poet.image = result[0]['image'];
-      });
-    });
-  }
+class _PoetEditScreenState extends ViewState<PoetEditScreen, PoetEditScreenViewModel> {
+  _PoetEditScreenState(PoetEditScreenViewModel viewModel) : super(viewModel);
 
   @override
   void initState() {
-    _getPoetInfo();
     super.initState();
+    listenToRoutesSpecs(viewModel.routes);
   }
 
   @override
   Widget build(BuildContext context) {
+    return StreamBuilder<PoetEditScreenState>(
+      stream: viewModel.state,
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) return Container();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Center(child: Text(title)),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Image(image: AssetImage(
-                'assets/images/${poet.image}.jpg',),
-                height: 140,
-              ),
-              AppTextField(
-                hint: "نام",
-                value: poet.name ?? "",
-                onSubmit: (newVal) {
-                  poet.name = newVal;
-                },
-              ),
+        final state = snapshot.data!;
 
-              AppTextField(
-                hint: "توضیحات",
-                value: poet.info ?? "",
-                isMultiline: true,
-                onSubmit: (newVal) {
-                  poet.info = newVal;
-                },
-              ),
-
-              AppButton(
-                onPress: () {
-                  updatePoet();
-                },
-                text: "Edit",
-              )
-            ],
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Home Page'),
           ),
-        )
-      )
+          body: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child:  Column(
+                children: [
+                  Image(image: AssetImage(
+                    'assets/images/${state.poet?.image}.jpg',),
+                    height: 140,
+                  ),
+                  AppTextField(
+                    hint: "نام",
+                    value: state.poet?.name ?? "",
+                    onSubmit: (newVal) {
+                      state.poet?.name = newVal;
+                    },
+                  ),
+
+                  AppTextField(
+                    hint: "توضیحات",
+                    value: state.poet?.info ?? "",
+                    isMultiline: true,
+                    onSubmit: (newVal) {
+                      state.poet?.info = newVal;
+                    },
+                  ),
+
+                  AppButton(
+                    onPress: () {
+                    },
+                    text: "Edit",
+                  )
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
-  }
-
-
-  void updatePoet() async {
-    await _poetService.updatePoet(poet).then((result) {
-
-    });
   }
 }

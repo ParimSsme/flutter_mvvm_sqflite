@@ -47,6 +47,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   sqflite: ^1.1.5
   rxdart: ^0.27.7
+  logging: ^1.0.0
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

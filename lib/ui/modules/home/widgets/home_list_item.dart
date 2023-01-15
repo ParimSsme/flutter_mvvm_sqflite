@@ -63,10 +63,6 @@ Widget HomeListItem(
                   child: AppIconButton(
                     icon: Icons.edit,
                     onPress:(){
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) =>
-                              PoetEditScreen(title: poet.name ?? "",
-                                  poetId: poet.id ?? 0)));
                     },
                   ),
                 ),
