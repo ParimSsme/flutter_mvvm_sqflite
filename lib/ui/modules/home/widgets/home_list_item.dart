@@ -89,23 +89,36 @@ Future<void> _showMyDialog(
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text('حذف'),
+        title: const Text('!حذف',style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          color: AppColors.red
+        ),
+          textAlign: TextAlign.end,
+        ),
         content: SingleChildScrollView(
           child: ListBody(
             children: const <Widget>[
-              Text('آیا میخواهید این شاعر را حذف نمایید؟'),
+              Text('آیا میخواهید این شاعر را حذف نمایید؟',style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
             ],
           ),
         ),
         actions: <Widget>[
           TextButton(
-            child: const Text('لغو'),
+            child: const Text('لغو', style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold)),
             onPressed: () {
               Navigator.of(context).pop();
             },
           ),
           TextButton(
-            child: const Text('تایید'),
+            child: Text('تایید', style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold)
+            ),
             onPressed: () {
               onClickDelete();
               Navigator.of(context).pop();
