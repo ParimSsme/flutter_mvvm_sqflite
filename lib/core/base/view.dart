@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sqflite_mvvm_design/core/base/view_model.dart';
-import '../../config/router/router.dart';
+import '../../config/router/route_service.dart';
 import 'package:logging/logging.dart';
 
 final RouteObserver<ModalRoute<void>> routeObserver =

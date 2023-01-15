@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/screen.dart';
-
 import '../../ui/modules/home/viewmodel.dart';
 
 class AppRouter {

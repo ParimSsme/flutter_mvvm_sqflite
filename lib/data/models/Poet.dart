@@ -8,10 +8,22 @@ class Poet {
 
   poetMap() {
     var mapping = <String, dynamic>{};
-    mapping['id'] = id;
-    mapping['name'] = name;
-    mapping['info'] = info;
-    mapping['image'] = image!;
+    mapping[PoetColumns.id.value] = id;
+    mapping[PoetColumns.name.name] = name;
+    mapping[PoetColumns.info.value] = info;
+    mapping[PoetColumns.image.value] = image!;
     return mapping;
   }
+}
+
+enum PoetColumns<T extends Object> {
+
+  id<String>('id'),
+  name<String>('name'),
+  info<String>('info'),
+  image<String>('image');
+
+  const PoetColumns(this.value);
+  final T value;
+
 }

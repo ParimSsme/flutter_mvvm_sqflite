@@ -1,4 +1,4 @@
-import '../../../config/router/router.dart';
+import '../../../config/router/route_service.dart';
 import '../../../core/base/view_model.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../data/models/Poet.dart';

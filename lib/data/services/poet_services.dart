@@ -1,5 +1,5 @@
+import 'package:sqflite_mvvm_design/core/enums/database_tables.dart';
 import 'package:sqflite_mvvm_design/data/models/Poet.dart';
-import 'package:sqflite_mvvm_design/data/service_constants.dart';
 import '../helper/repository.dart';
 
 class PoetService
@@ -11,31 +11,31 @@ class PoetService
 
   SavePoet(Poet poet) async{
     return await _repository.insertData(
-        ServiceConstants.poetTable,
+        DatabaseTables.poet.value,
         poet.poetMap()
     );
   }
 
   readAllPoets() async{
-    return await _repository.readData(ServiceConstants.poetTable);
+    return await _repository.readData(DatabaseTables.poet.value);
   }
 
   readPoetById(int id) async {
     return await _repository.readDataById(
-        ServiceConstants.poetTable, id
+        DatabaseTables.poet.value, id
     );
   }
 
   updatePoet(Poet poet) async {
     return await _repository.updateData(
-        ServiceConstants.poetTable,
+        DatabaseTables.poet.value,
         poet.poetMap()
     );
   }
 
   deletePoet(poetId) async {
     return await _repository.deleteDataById(
-        ServiceConstants.poetTable,
+        DatabaseTables.poet.value,
         poetId
     );
   }
