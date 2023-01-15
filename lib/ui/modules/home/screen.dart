@@ -18,19 +18,8 @@ class HomeScreen extends View<HomeScreenViewModel> {
 class _HomeScreenState extends ViewState<HomeScreen, HomeScreenViewModel> {
   _HomeScreenState(HomeScreenViewModel viewModel) : super(viewModel);
 
-  late List<Poet> _poetList = <Poet>[];
-  final _poetService = PoetService();
-
-  getAllUserDetails() async {
-    List<Poet> poets = await _poetService.readAllPoets();
-    setState(() {
-      _poetList.addAll(poets);
-    });
-  }
-
   @override
   void initState() {
-    getAllUserDetails();
     super.initState();
     listenToRoutesSpecs(viewModel.routes);
   }
@@ -66,11 +55,11 @@ class _HomeScreenState extends ViewState<HomeScreen, HomeScreenViewModel> {
                 scrollDirection: Axis.vertical,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 20,
-                children: List.generate(_poetList.length, (index) {
+                children: List.generate(state.poets?.length ?? 0, (index) {
                   return Expanded(
                     child: HomeListItem(
                         context,
-                        _poetList[index],
+                        state.poets?[index] ?? Poet(),
                         itemHeight,
                         itemWidth,
                             (){}

@@ -2,20 +2,21 @@ import '../../../config/router/route_service.dart';
 import '../../../core/base/view_model.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../data/models/Poet.dart';
+import '../../../data/services/poet_services.dart';
 
 class HomeScreenState {
 
-  final Poet? poet;
+  final List<Poet>? poets;
 
   HomeScreenState({
-    this.poet,
+    this.poets,
   });
 
   HomeScreenState copyWith({
-    Poet? poet,
+    List<Poet>? poets,
   }) {
     return HomeScreenState(
-      poet: poet,
+      poets: poets,
     );
   }
 }
@@ -30,11 +31,32 @@ class HomeScreenViewModel extends BaseViewModel {
   Stream<AppRouteSpec> get routes => _routesSubject;
 
   PoetEditScreenViewModel({
-    Poet? poet
+    List<Poet>? poets
   }) {
     _stateSubject.add(HomeScreenState(
-        poet: poet
+        poets: poets
     ));
+  }
+
+
+  getAllPoets() async {
+    final _poetService = PoetService();
+    List<Poet> poets = await _poetService.readAllPoets();
+    updateList(poets);
+  }
+
+  updateList(List<Poet> list){
+    final state = _stateSubject.value;
+    _stateSubject.add(
+      state.copyWith(
+        poets: list,
+      ),
+    );
+  }
+
+  @override
+  void init() {
+    getAllPoets();
   }
 
   @override
