@@ -16,7 +16,7 @@ class AppIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      iconSize: 45,
+      iconSize: 30,
       onPressed: () => onPress(),
       icon: Icon(icon),
     );

@@ -33,12 +33,11 @@ Widget HomeListItem(
         ),
       ),
       Positioned(
-        bottom: -50,
+        bottom: -10,
         left: 20,
         right: 20,
         child: Container(
-          height: 120,
-          width: itemWidth-40,
+          height: 70,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: AppColors.primary,
@@ -46,34 +45,25 @@ Widget HomeListItem(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(
-                  flex: 1,
-                  child: AppIconButton(
-                    icon: Icons.delete_outline,
-                    onPress:(){
-                      _showMyDialog(context, poet.id ?? null, onDelete);
-                    },
-                  ),
+                AppIconButton(
+                  icon: Icons.delete_outline,
+                  onPress:(){
+                    _showMyDialog(context, poet.id ?? null, onDelete);
+                  },
                 ),
-                Expanded(
-                  flex: 1,
-                  child: AppIconButton(
-                    icon: Icons.edit,
-                    onPress:(){
-                    },
-                  ),
+                AppIconButton(
+                  icon: Icons.edit,
+                  onPress:(){
+                  },
                 ),
-                Expanded(
-                  flex: 1,
-                  child: AppIconButton(
-                    icon: Icons.info_outline_rounded,
-                    onPress:(){
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) =>
-                              PoetInfoScreen(title: poet.name ?? "",
-                                  poetId: poet.id ?? 0)));
-                    },
-                  ),
+                AppIconButton(
+                  icon: Icons.info_outline_rounded,
+                  onPress:(){
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) =>
+                            PoetInfoScreen(title: poet.name ?? "",
+                                poetId: poet.id ?? 0)));
+                  },
                 ),
               ],
           ),
