@@ -38,6 +38,9 @@ class HomeScreenViewModel extends BaseViewModel {
     ));
   }
 
+  void onClickAdd() {
+
+  }
 
   void onClickInfo(Poet poet) {
     _routesSubject.add(
