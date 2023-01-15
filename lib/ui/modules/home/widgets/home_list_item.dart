@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/core/resources/app_colors.dart';
-
 import '../../../../data/models/Poet.dart';
-import '../../../../data/services/poet_services.dart';
 import '../../../widgets/app_icon_button.dart';
-import '../../poet_edit/poet_edit.dart';
 import '../../poet_info/poet_info.dart';
 
 Widget HomeListItem(
