@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
 
@@ -9,55 +8,75 @@ class MyPage extends StatefulWidget {
   _MyPageState createState() => _MyPageState();
 }
 class _MyPageState extends State<MyPage> {
-  /// Variable
-  File? image;
+  /// Variables
+  File? imageFile;
 
   /// Widget
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Image Picker Example"),
+          title: Text("Image Picker"),
         ),
-        body: Center(
-          child: Column(
-            children: [
-              MaterialButton(
-                  color: Colors.blue,
-                  child: const Text(
-                      "Pick Image from Gallery",
-                      style: TextStyle(
-                          color: Colors.white70, fontWeight: FontWeight.bold
-                      )
+        body: Container(
+            child: imageFile == null
+                ? Container(
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  RaisedButton(
+                    color: Colors.greenAccent,
+                    onPressed: () {
+                      _getFromGallery();
+                    },
+                    child: Text("PICK FROM GALLERY"),
                   ),
-                  onPressed: () {
-                    pickImage();
-                  }
-              ),
-              MaterialButton(
-                  color: Colors.blue,
-                  child: const Text(
-                      "Pick Image from Camera",
-                      style: TextStyle(
-                          color: Colors.white70, fontWeight: FontWeight.bold
-                      )
+                  Container(
+                    height: 40.0,
                   ),
-                  onPressed: () {}
+                  RaisedButton(
+                    color: Colors.lightGreenAccent,
+                    onPressed: () {
+                      _getFromCamera();
+                    },
+                    child: Text("PICK FROM CAMERA"),
+                  )
+                ],
               ),
-            ],
-          ),
-        )
-    );
+            ): Container(
+              child: Image.file(
+                imageFile!,
+                fit: BoxFit.cover,
+              ),
+            )));
   }
 
-  Future pickImage() async {
-    try {
-      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-      if(image == null) return;
-      final imageTemp = File(image.path);
-      setState(() => this.image = imageTemp);
-    } on PlatformException catch(e) {
-      print('Failed to pick image: $e');
+  /// Get from gallery
+  _getFromGallery() async {
+    PickedFile pickedFile = await ImagePicker().getImage(
+      source: ImageSource.gallery,
+      maxWidth: 1800,
+      maxHeight: 1800,
+    );
+    if (pickedFile != null) {
+      setState(() {
+        imageFile = File(pickedFile.path);
+      });
+    }
+  }
+
+  /// Get from Camera
+  _getFromCamera() async {
+    PickedFile pickedFile = await ImagePicker().getImage(
+      source: ImageSource.camera,
+      maxWidth: 1800,
+      maxHeight: 1800,
+    );
+    if (pickedFile != null) {
+      setState(() {
+        imageFile = File(pickedFile.path);
+      });
     }
   }
 }

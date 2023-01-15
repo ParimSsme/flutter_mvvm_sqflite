@@ -2,6 +2,7 @@
     package="com.example.sqflite_mvvm_design">
 
     <uses-permission android:name="android.permission.STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
    <application
        android:requestLegacyExternalStorage="true"
        android:label="sqflite_mvvm_design"
