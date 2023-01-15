@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/services.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -33,18 +32,4 @@ class DBConnection {
     await File(dbPath).writeAsBytes(bytes);
     return await openDatabase(dbPath);
   }
-
-  // Future<Database> setDatabase() async {
-  //   var dbDir = await getDatabasesPath();
-  //   var dbPath = join(dbDir, "data.db");
-  //   var database =
-  //   await openDatabase(dbPath, version: 1, onCreate: _createDatabase);
-  //   return database;
-  // }
-  //
-  // Future<void> _createDatabase(Database database, int version) async {
-  //   String sql =
-  //       "CREATE TABLE users (id INTEGER PRIMARY KEY,name TEXT,contact Text,description TEXT);";
-  //   await database.execute(sql);
-  // }
 }
