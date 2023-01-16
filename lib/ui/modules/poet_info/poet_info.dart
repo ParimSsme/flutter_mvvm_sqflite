@@ -34,7 +34,7 @@ class _PoetInfoScreenState extends ViewState<PoetInfoScreen, PoetInfoScreenViewM
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Home Page'),
+            title: const Text('معلومات'),
           ),
           body: SingleChildScrollView(
               child: Padding(

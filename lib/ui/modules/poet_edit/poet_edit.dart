@@ -33,7 +33,7 @@ class _PoetEditScreenState extends ViewState<PoetEditScreen, PoetEditScreenViewM
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Home Page'),
+            title: const Text('ویرایش'),
           ),
           body: SafeArea(
             child: Padding(
@@ -61,10 +61,12 @@ class _PoetEditScreenState extends ViewState<PoetEditScreen, PoetEditScreenViewM
                     },
                   ),
 
+                  const SizedBox(height: 20,),
+
                   AppButton(
                     onPress: () {
                     },
-                    text: "Edit",
+                    text: "ویرایش",
                   )
                 ],
               ),

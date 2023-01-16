@@ -19,15 +19,13 @@ class AppTheme {
         shadowColor: AppColors.primary,
         iconTheme: IconThemeData(
             color: AppColors.white,
-            size: 30
+            size: 35
         ),
-        textTheme:TextTheme(
-          headline3: TextStyle(
-            color: AppColors.white,
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            fontStyle: FontStyle.normal,
-          )
+        titleTextStyle: TextStyle(
+          color: AppColors.white,
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+          fontStyle: FontStyle.normal,
         )
       ),
       buttonTheme: const ButtonThemeData(

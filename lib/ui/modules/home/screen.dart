@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
 import 'package:sqflite_mvvm_design/core/enums/database_tables.dart';
 import 'package:sqflite_mvvm_design/core/resources/app_colors.dart';
 import 'package:sqflite_mvvm_design/data/helper/response_body.dart';
@@ -44,7 +45,9 @@ class _HomeScreenState extends ViewState<HomeScreen, HomeScreenViewModel> {
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Home Page'),
+            centerTitle: true,
+            title: const Text('شاعران',
+            ),
           ),
           body: SafeArea(
             child: Padding(
