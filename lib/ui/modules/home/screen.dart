@@ -85,14 +85,14 @@ class _HomeScreenState extends ViewState<HomeScreen, HomeScreenViewModel> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              // Dialog dialog = AddPoetDialogue();
-              // showDialog(
-              //     context: context, builder: (BuildContext context) => dialog);
+              Dialog dialog = AddPoetDialogue();
+              showDialog(
+                  context: context, builder: (BuildContext context) => dialog);
 
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyPage()),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => MyPage()),
+              // );
             },// Add your onPressed code here!},
             backgroundColor: AppColors.primary,
             child: const Icon(Icons.add),

@@ -7,7 +7,6 @@ import 'package:sqflite_mvvm_design/ui/widgets/select_image_button.dart';
 Dialog AddPoetDialogue() {
   return Dialog(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-//this right here
     child: Container(
       height: 505,
       width: double.infinity,

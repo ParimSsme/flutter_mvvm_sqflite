@@ -91,6 +91,11 @@ class HomeScreenViewModel extends BaseViewModel {
   }
 
   @override
+  void didChangeDependencies() {
+    getAllPoets();
+  }
+
+  @override
   void dispose() {
     _stateSubject.close();
     _routesSubject.close();
