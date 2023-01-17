@@ -64,10 +64,10 @@ class HomeScreenViewModel extends BaseViewModel {
     );
   }
 
-  onClickDelete()  {
-    // final poetService = PoetService();
-    // await poetService.deletePoet(0);
-    // await getAllPoets();
+  void onClickDelete(int poetId) {
+    final poetService = PoetService();
+    poetService.deletePoet(poetId);
+    getAllPoets();
   }
 
   getAllPoets() async {

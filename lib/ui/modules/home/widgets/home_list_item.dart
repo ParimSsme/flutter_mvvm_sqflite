@@ -54,9 +54,7 @@ Widget HomeListItem(
                   icon: Icons.delete_outline,
                   onPress:(){
                     _showMyDialog(context,
-                        poet.id ?? null,
-                        onClickDelete
-                    );
+                        poet.id, (){onClickDelete();});
                   },
                 ),
                 AppIconButton(

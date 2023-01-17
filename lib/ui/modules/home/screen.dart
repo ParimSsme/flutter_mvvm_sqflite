@@ -67,7 +67,9 @@ class _HomeScreenState extends ViewState<HomeScreen, HomeScreenViewModel> {
                         state.poets?[index] ?? Poet(),
                         itemHeight,
                         itemWidth,
-                        viewModel.onClickDelete(),
+                      (){
+                        viewModel.onClickDelete(state.poets?[index].id ?? -1);
+                      },
                           () {
                           viewModel.onClickInfo(state.poets?[index] ?? Poet());
                           },
