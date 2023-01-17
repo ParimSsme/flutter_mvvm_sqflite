@@ -38,8 +38,10 @@ class HomeScreenViewModel extends BaseViewModel {
     ));
   }
 
-  void onClickAdd() {
-
+  void onClickAdd(Poet poet) {
+    final poetService = PoetService();
+    poetService.AddPoet(poet);
+    getAllPoets();
   }
 
   void onClickInfo(Poet poet) {

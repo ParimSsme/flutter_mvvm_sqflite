@@ -85,7 +85,11 @@ class _HomeScreenState extends ViewState<HomeScreen, HomeScreenViewModel> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              Dialog dialog = AddPoetDialogue();
+              Dialog dialog = AddPoetDialogue(
+               (poet) {
+                  viewModel.onClickAdd(poet);
+                },
+              );
               showDialog(
                   context: context, builder: (BuildContext context) => dialog);
 

@@ -4,7 +4,12 @@ import 'package:sqflite_mvvm_design/ui/widgets/app_button.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_text_field.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/select_image_button.dart';
 
-Dialog AddPoetDialogue() {
+import '../../../../data/models/Poet.dart';
+
+Dialog AddPoetDialogue(
+    void Function(Poet poet) onClickAdd
+) {
+  Poet updatedPoet = Poet();
   return Dialog(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
     child: Container(
@@ -18,11 +23,15 @@ Dialog AddPoetDialogue() {
             SelectImageButton(),
             AppTextField(
                 hint: "Enter name",
-                onSubmit: (val){}
+                onSubmit: (val){
+                  updatedPoet.name = val;
+                }
             ),
             AppTextField(
                 hint: "Enter info",
-                onSubmit: (val){},
+                onSubmit: (val){
+                  updatedPoet.info = val;
+                },
                 maxLines: 10
             ),
             Expanded(child: Container()),
@@ -42,7 +51,10 @@ Dialog AddPoetDialogue() {
                     padding: EdgeInsets.only(left: 6, right: 12),
                     child: AppButton(
                       text: 'ذخیره',
-                      onPress: () {  },
+                      onPress: () {
+                        updatedPoet.image = "";
+                        onClickAdd(updatedPoet);
+                      },
                     ),
                   ),
                 )

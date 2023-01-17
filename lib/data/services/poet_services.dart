@@ -10,7 +10,7 @@ class PoetService
     _repository = Repository();
   }
 
-  SavePoet(Poet poet) async{
+  AddPoet(Poet poet) async{
     return await _repository.insertData(
         DatabaseTables.poet.value,
         poet.poetMap()
