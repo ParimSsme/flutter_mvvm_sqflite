@@ -1,15 +1,25 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
-
+import 'package:sqflite_mvvm_design/ui/modules/home/im.dart';
 import '../../core/resources/app_colors.dart';
 
-class SelectImageButton extends StatelessWidget {
+class SelectImageButton extends StatefulWidget {
   const SelectImageButton({Key? key}) : super(key: key);
+
+  @override
+  State<SelectImageButton> createState() => _SelectImageButtonState();
+}
+
+class _SelectImageButtonState extends State<SelectImageButton> {
+
+  File? imageFile;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        ClipRRect(
+        imageFile == null
+            ? ClipRRect(
           borderRadius: BorderRadius.circular(50.0),
           child: Container(
             alignment: Alignment.center,
@@ -24,6 +34,11 @@ class SelectImageButton extends StatelessWidget {
               size: 70,
             ),
           ),
+        ) : Container(
+          child: Image.file(
+            (imageFile!),
+            fit: BoxFit.cover,
+          ),
         ),
         Positioned(
           bottom: 0,
@@ -33,7 +48,19 @@ class SelectImageButton extends StatelessWidget {
               color: AppColors.primary, // Button color
               child: InkWell(
                 splashColor: AppColors.white, // Splash color
-                onTap: () {},
+                onTap: () {
+                  Dialog dialog = AddPhotoDialogue(
+                        (image) {
+                          if (image != null){
+                            setState((){
+                              imageFile = image;
+                            });
+                          }
+                    },
+                  );
+                  showDialog(
+                      context: context, builder: (BuildContext context) => dialog);
+                },
                 child: SizedBox(width: 35,
                     height: 35,
                     child: Icon(

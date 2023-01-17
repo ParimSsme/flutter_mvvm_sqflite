@@ -92,11 +92,6 @@ class _HomeScreenState extends ViewState<HomeScreen, HomeScreenViewModel> {
               );
               showDialog(
                   context: context, builder: (BuildContext context) => dialog);
-
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => MyPage()),
-              // );
             },// Add your onPressed code here!},
             backgroundColor: AppColors.primary,
             child: const Icon(Icons.add),

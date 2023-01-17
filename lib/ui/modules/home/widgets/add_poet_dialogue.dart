@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sqflite_mvvm_design/core/resources/app_colors.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_button.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_text_field.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/select_image_button.dart';
@@ -20,7 +19,9 @@ Dialog AddPoetDialogue(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SelectImageButton(),
+            SelectImageButton(
+
+            ),
             AppTextField(
                 hint: "Enter name",
                 onSubmit: (val){
