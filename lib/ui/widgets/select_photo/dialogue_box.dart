@@ -1,6 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
+import 'package:sqflite_mvvm_design/core/enums/button_variant.dart';
+import 'package:sqflite_mvvm_design/core/resources/app_colors.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_button.dart';
 
 
@@ -11,14 +14,15 @@ Dialog AddPhotoDialogue(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
     child: Container(
       height: 200,
-      width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text("Select Photo"),
-            Divider(),
+            Text("Select Photo",
+              style: AppTheme.light.textTheme.headline2,
+              textAlign: TextAlign.left,
+            ),
+            const Divider(color: AppColors.gray, height: 2),
             AppButton(
               onPress: () {
                 _getFromGallery().then((val) {
@@ -26,6 +30,7 @@ Dialog AddPhotoDialogue(
                 });
               },
               text: "PICK FROM GALLERY",
+              variant: ButtonVariantEnum.text,
             ),
             Container(
               height: 40.0,
@@ -37,6 +42,7 @@ Dialog AddPhotoDialogue(
                 });
               },
               text: "PICK FROM CAMERA",
+              variant: ButtonVariantEnum.text,
             )
           ],
         ),

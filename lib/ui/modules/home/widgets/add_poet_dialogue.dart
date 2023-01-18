@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_button.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_text_field.dart';
-import 'package:sqflite_mvvm_design/ui/widgets/select_image_button.dart';
+import 'package:sqflite_mvvm_design/ui/widgets/select_photo/select_image_button.dart';
 
+import '../../../../core/enums/button_variant.dart';
 import '../../../../data/models/Poet.dart';
 
 Dialog AddPoetDialogue(
@@ -44,6 +45,7 @@ Dialog AddPoetDialogue(
                     child: AppButton(
                       text: 'لغو',
                       onPress: () {  },
+                      variant: ButtonVariantEnum.text,
                     ),
                   ),
                 ),
@@ -52,6 +54,7 @@ Dialog AddPoetDialogue(
                     padding: EdgeInsets.only(left: 6, right: 12),
                     child: AppButton(
                       text: 'ذخیره',
+                      variant: ButtonVariantEnum.text,
                       onPress: () {
                         updatedPoet.image = "";
                         onClickAdd(updatedPoet);

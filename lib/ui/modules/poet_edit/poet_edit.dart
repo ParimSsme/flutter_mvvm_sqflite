@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/ui/modules/poet_edit/viewmodel.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_text_field.dart';
 import '../../../core/base/view.dart';
+import '../../../core/enums/button_variant.dart';
 import '../../widgets/app_button.dart';
 
 class PoetEditScreen extends View<PoetEditScreenViewModel> {
@@ -67,6 +68,7 @@ class _PoetEditScreenState extends ViewState<PoetEditScreen, PoetEditScreenViewM
                     onPress: () {
                     },
                     text: "ویرایش",
+                    variant: ButtonVariantEnum.contained,
                   )
                 ],
               ),

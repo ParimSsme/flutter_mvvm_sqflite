@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:sqflite_mvvm_design/ui/modules/home/im.dart';
-import '../../core/resources/app_colors.dart';
+import 'package:sqflite_mvvm_design/ui/widgets/select_photo/dialogue_box.dart';
+import '../../../core/resources/app_colors.dart';
 
 class SelectImageButton extends StatefulWidget {
   const SelectImageButton({Key? key}) : super(key: key);

@@ -6,10 +6,3 @@ enum DatabaseTables<T extends Object> {
   final T value;
 
 }
-
-enum Status {
-  none,
-  running,
-  stopped,
-  paused
-}

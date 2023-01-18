@@ -8,7 +8,7 @@ import 'package:sqflite_mvvm_design/ui/modules/home/viewmodel.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/add_poet_dialogue.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/home_list_item.dart';
 import '../../../core/base/view.dart';
-import 'im.dart';
+import '../../widgets/select_photo/dialogue_box.dart';
 
 class HomeScreen extends View<HomeScreenViewModel> {
   const HomeScreen({required HomeScreenViewModel viewModel, Key? key})
