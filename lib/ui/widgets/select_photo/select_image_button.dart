@@ -18,8 +18,7 @@ class _SelectImageButtonState extends State<SelectImageButton> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        imageFile == null
-            ? ClipRRect(
+        ClipRRect(
           borderRadius: BorderRadius.circular(50.0),
           child: Container(
             alignment: Alignment.center,
@@ -28,16 +27,17 @@ class _SelectImageButtonState extends State<SelectImageButton> {
               maxHeight: 100,
             ),
             color: AppColors.background,
-            child: const Icon(
+            child: imageFile == null
+                ?  const Icon(
               Icons.person,
               color: AppColors.gray,
               size: 70,
+            ) : Image.file(
+              (imageFile!),
+              height: 100,
+              width: 100,
+              fit: BoxFit.cover,
             ),
-          ),
-        ) : Container(
-          child: Image.file(
-            (imageFile!),
-            fit: BoxFit.cover,
           ),
         ),
         Positioned(
@@ -57,6 +57,7 @@ class _SelectImageButtonState extends State<SelectImageButton> {
                             });
                           }
                     },
+                    context
                   );
                   showDialog(
                       context: context, builder: (BuildContext context) => dialog);

@@ -8,7 +8,8 @@ import 'package:sqflite_mvvm_design/ui/widgets/app_button.dart';
 
 
 Dialog AddPhotoDialogue(
-    void Function(File? imageFile) onClickTakePhoto
+    void Function(File? imageFile) onClickTakePhoto,
+    BuildContext context
 ) {
   return Dialog(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
@@ -28,6 +29,7 @@ Dialog AddPhotoDialogue(
                 _getFromGallery().then((val) {
                   onClickTakePhoto(val);
                 });
+                Navigator.pop(context);
               },
               text: "PICK FROM GALLERY",
               variant: ButtonVariantEnum.text,
@@ -40,6 +42,7 @@ Dialog AddPhotoDialogue(
                 _getFromCamera().then((val) {
                   onClickTakePhoto(val);
                 });
+                Navigator.pop(context);
               },
               text: "PICK FROM CAMERA",
               variant: ButtonVariantEnum.text,
