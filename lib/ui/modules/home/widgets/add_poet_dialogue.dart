@@ -56,7 +56,6 @@ Dialog AddPoetDialogue(
                       text: 'ذخیره',
                       variant: ButtonVariantEnum.text,
                       onPress: () {
-                        updatedPoet.image = "";
                         onClickAdd(updatedPoet);
                       },
                     ),
