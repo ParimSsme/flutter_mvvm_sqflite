@@ -3,7 +3,6 @@ import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
 import 'package:sqflite_mvvm_design/core/resources/app_colors.dart';
 import '../../../../data/models/Poet.dart';
 import '../../../widgets/app_icon_button.dart';
-import '../../poet_info/poet_info.dart';
 
 Widget HomeListItem(
     BuildContext context,

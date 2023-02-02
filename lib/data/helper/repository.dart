@@ -1,5 +1,4 @@
 import 'package:sqflite/sqflite.dart';
-
 import 'db_conection.dart';
 
 class Repository

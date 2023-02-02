@@ -1,5 +1,4 @@
 import 'package:sqflite_mvvm_design/core/enums/database_tables.dart';
-
 import '../models/Poet.dart';
 
 class ResponseBody {

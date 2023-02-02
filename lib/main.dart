@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
-import 'package:sqflite_mvvm_design/ui/modules/home/screen.dart';
-import 'package:sqflite_mvvm_design/ui/modules/splash_screen.dart';
-
 import 'config/router/app_routes.dart';
 import 'core/base/view.dart';
 

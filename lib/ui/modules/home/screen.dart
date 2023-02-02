@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
-import 'package:sqflite_mvvm_design/core/enums/database_tables.dart';
 import 'package:sqflite_mvvm_design/core/resources/app_colors.dart';
-import 'package:sqflite_mvvm_design/data/helper/response_body.dart';
 import 'package:sqflite_mvvm_design/data/models/Poet.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/viewmodel.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/add_poet_dialogue.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/home_list_item.dart';
 import '../../../core/base/view.dart';
-import '../../widgets/select_photo/dialogue_box.dart';
 
 class HomeScreen extends View<HomeScreenViewModel> {
   const HomeScreen({required HomeScreenViewModel viewModel, Key? key})
