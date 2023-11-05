@@ -13,7 +13,7 @@ class PoetService
   AddPoet(Poet poet) async{
     return await _repository.insertData(
         DatabaseTables.poet.value,
-        poet.poetMap()
+        poet
     );
   }
 
@@ -36,7 +36,7 @@ class PoetService
   updatePoet(Poet poet) async {
     return await _repository.updateData(
         DatabaseTables.poet.value,
-        poet.poetMap()
+        poet
     );
   }
 

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
+import '../providers/poets.dart';
 import 'config/router/app_routes.dart';
-import 'core/base/view.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => Poets([]),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: AppTheme.light,
       debugShowCheckedModeBanner: false,
-      navigatorObservers: [routeObserver],
+      // navigatorObservers: [routeObserver],
       initialRoute: '/',
       onGenerateRoute: _router.route,// Decides which theme to show, light or dark.
     );

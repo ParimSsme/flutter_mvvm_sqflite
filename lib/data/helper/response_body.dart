@@ -3,19 +3,19 @@ import '../models/Poet.dart';
 
 class ResponseBody {
 
-  static dynamic? body(
+  static dynamic body(
       DatabaseTables table,
       Map<String, dynamic> map
   ) {
 
     switch (table) {
       case DatabaseTables.poet:
-        Poet model = Poet();
-        model.id = map[PoetColumns.id.name];
-        model.name = map[PoetColumns.name.name];
-        model.info = map[PoetColumns.info.name];
-        model.image = map[PoetColumns.image.name];
-        return model;
+        return Poet(
+          id: map[Poet.idKey],
+          name: map[Poet.nameKey],
+          info: map[Poet.infoKey],
+          image: map[Poet.imageKey]
+        );
 
       default:
         throw Exception('table not exist');

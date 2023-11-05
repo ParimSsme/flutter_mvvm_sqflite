@@ -55,27 +55,27 @@ Dialog AddPhotoDialogue(
 }
 
 Future<File?> _getFromGallery() async {
-  PickedFile pickedFile = await ImagePicker().getImage(
-    source: ImageSource.gallery,
-    maxWidth: 1800,
-    maxHeight: 1800,
-  );
-  if (pickedFile != null) {
-    return File(pickedFile.path);
-  } else {
-    return null;
-  }
+  // PickedFile pickedFile = await ImagePicker().getImage(
+  //   source: ImageSource.gallery,
+  //   maxWidth: 1800,
+  //   maxHeight: 1800,
+  // );
+  // if (pickedFile != null) {
+  //   return File(pickedFile.path);
+  // } else {
+  //   return null;
+  // }
 }
 
 Future<File?> _getFromCamera() async {
-  PickedFile pickedFile = await ImagePicker().getImage(
-    source: ImageSource.camera,
-    maxWidth: 1800,
-    maxHeight: 1800,
-  );
-  if (pickedFile != null) {
-    return File(pickedFile.path);
-  } else {
-    return null;
-  }
+  // PickedFile pickedFile = await ImagePicker().getImage(
+  //   source: ImageSource.camera,
+  //   maxWidth: 1800,
+  //   maxHeight: 1800,
+  // );
+  // if (pickedFile != null) {
+  //   return File(pickedFile.path);
+  // } else {
+  //   return null;
+  // }
 }
