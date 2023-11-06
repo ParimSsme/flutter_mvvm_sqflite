@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/screen.dart';
 import 'package:sqflite_mvvm_design/ui/modules/poet_edit/poet_edit.dart';
 import 'package:sqflite_mvvm_design/ui/modules/poet_info/poet_info.dart';
-import 'package:sqflite_mvvm_design/ui/modules/poet_info/viewmodel.dart';
 import '../../data/models/Poet.dart';
-import '../../ui/modules/home/viewmodel.dart';
-import '../../ui/modules/poet_edit/viewmodel.dart';
 
 class AppRouter {
   Route<dynamic>? route(RouteSettings settings) {
@@ -15,7 +12,7 @@ class AppRouter {
       case '/':
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => HomeScreen(viewModel: HomeScreenViewModel()),
+          builder: (_) => const HomeScreen(),
         );
 
       case '/poet_info':
@@ -27,11 +24,7 @@ class AppRouter {
 
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => PoetInfoScreen(
-            viewModel: PoetInfoScreenViewModel(
-                poet: poet
-            ),
-          ),
+          builder: (_) => const PoetInfoScreen(),
         );
 
         case '/poet_edit':
@@ -43,11 +36,7 @@ class AppRouter {
 
         return MaterialPageRoute(
           settings: settings,
-          builder: (_) => PoetEditScreen(
-            viewModel: PoetEditScreenViewModel(
-                poet: poet
-            ),
-          ),
+          builder: (_) => const PoetEditScreen(),
         );
 
       default:
