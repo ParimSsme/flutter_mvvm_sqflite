@@ -14,6 +14,7 @@ class PoetService
     return await _repository.insertData(
         DatabaseTables.poet.value,
         poet
+        // poet.poetMap()
     );
   }
 

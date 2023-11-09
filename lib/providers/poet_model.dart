@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import '../data/models/Poet.dart';
 import '../data/services/poet_services.dart';
 
-class Poets with ChangeNotifier {
+class PoetModel with ChangeNotifier {
   List<Poet> _poets = [];
 
-  Poets(this._poets);
-
   getAllPoets() async {}
+
   List<Poet> get poets {
+    fetchAndSetPoets();
     return [..._poets];
   }
 
