@@ -7,16 +7,16 @@ class Poet {
   static const String infoKey = "info";
   static const String imageKey = "image";
 
-  int? id;
-  String? name;
-  String? info;
-  String? image;
+  int id;
+  String name;
+  String info;
+  String image;
 
   Poet({
-    this.id,
-    this.name,
-    this.info,
-    this.image
+    this.id = -1,
+    this.name = "",
+    this.info = "",
+    this.image = ""
   });
 
   factory Poet.fromMap(Map<String, dynamic> map) {

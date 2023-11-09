@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                   itemHeight,
                   itemWidth,
                       (){
-                    // viewModel.onClickDelete(state.poets?[index].id ?? -1);
+                    poet.deletePoet(poet.poets[index].id);
                   },
                       () {
                     // viewModel.onClickInfo(state.poets?[index] ?? Poet());
