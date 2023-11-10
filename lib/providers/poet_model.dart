@@ -35,5 +35,7 @@ class PoetModel with ChangeNotifier {
   Future<void> deletePoet(int id) async {
     final poetService = PoetService();
     poetService.deletePoet(id);
+    fetchAndSetPoets();
+    notifyListeners();
   }
 }
