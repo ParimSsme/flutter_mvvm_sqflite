@@ -1,4 +1,3 @@
-import 'package:sqflite_mvvm_design/core/enums/database_tables.dart';
 import 'package:sqflite_mvvm_design/data/models/Poet.dart';
 import '../helper/repository.dart';
 
@@ -11,7 +10,7 @@ class PoetService
 
   AddPoet(Poet poet) async{
     return await _repository.insertData(
-        DatabaseTables.poet.value,
+        Poet.tableKey,
         poet
         // poet.poetMap()
     );
@@ -19,7 +18,7 @@ class PoetService
 
   Future<List<Poet>> readAllPoets() async {
     List<Poet> poetList = <Poet>[];
-    var result = await _repository.readData(DatabaseTables.poet.value);
+    var result = await _repository.readData(Poet.tableKey);
     result.forEach((map) {
       Poet poet = Poet.fromMap(map);
       poetList.add(poet);
@@ -29,20 +28,20 @@ class PoetService
 
   readPoetById(int id) async {
     return await _repository.readDataById(
-        DatabaseTables.poet.value, id
+        Poet.tableKey, id
     );
   }
 
   updatePoet(Poet poet) async {
     return await _repository.updateData(
-        DatabaseTables.poet.value,
+        Poet.tableKey,
         poet
     );
   }
 
   deletePoet(poetId) async {
     return await _repository.deleteDataById(
-        DatabaseTables.poet.value,
+        Poet.tableKey,
         poetId
     );
   }

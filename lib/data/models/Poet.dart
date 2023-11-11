@@ -1,7 +1,7 @@
 
 class Poet {
 
-  static const String tableKey = "book";
+  static const String tableKey = "poet";
   static const String idKey = "id";
   static const String nameKey = "name";
   static const String infoKey = "info";
