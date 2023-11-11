@@ -28,17 +28,12 @@ class Poet {
     );
   }
 
-  // int? id;
-  // String? name;
-  // String? info;
-  // String? image;
-  //
-  // poetMap() {
-  //   var mapping = <String, dynamic>{};
-  //   mapping[PoetColumns.id.value] = id;
-  //   mapping[PoetColumns.name.name] = name;
-  //   mapping[PoetColumns.info.value] = info;
-  //   mapping[PoetColumns.image.value] = image;
-  //   return mapping;
-  // }
+  poetMap() {
+    var mapping = <String, dynamic>{};
+    mapping[idKey] = id;
+    mapping[nameKey] = name;
+    mapping[infoKey] = info;
+    mapping[imageKey] = image;
+    return mapping;
+  }
 }
