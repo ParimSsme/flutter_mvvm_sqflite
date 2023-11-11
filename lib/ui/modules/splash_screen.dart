@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../router/routes.dart';
+import '../../config/router/routes.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -12,7 +12,7 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 2), () => AppNavigator.push(Routes.home));
+    Timer(const Duration(seconds: 2), () => AppNavigator.replaceWith(Routes.home));
   }
 
   @override

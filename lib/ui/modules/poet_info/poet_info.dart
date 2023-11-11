@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
 import 'package:sqflite_mvvm_design/data/models/Poet.dart';
 
 class PoetInfoScreen extends StatelessWidget {
@@ -8,15 +7,15 @@ class PoetInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final args = ModalRoute.of(context)!.settings.arguments as Poet;
+    final args = ModalRoute.of(context)?.settings.arguments as Poet?;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(args.name),
+        title: Text(args?.name ?? ''),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(16.0),
             child: Column(
               children: [
                 // Image(image: AssetImage(

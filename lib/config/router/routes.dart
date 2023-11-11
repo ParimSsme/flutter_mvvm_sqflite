@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/screen.dart';
 import 'package:sqflite_mvvm_design/ui/modules/poet_edit/poet_edit.dart';
 import 'package:sqflite_mvvm_design/ui/modules/poet_info/poet_info.dart';
-import '../ui/modules/splash_screen.dart';
+import '../../ui/modules/splash_screen.dart';
 import 'fade_page_route.dart';
 
 enum Routes {

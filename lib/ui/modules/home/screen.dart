@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:sqflite_mvvm_design/providers/poet_model.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/add_poet_dialogue.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/home_list_item.dart';
+import '../../../config/router/routes.dart';
 import '../../../core/resources/app_colors.dart';
-import '../../../router/routes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
