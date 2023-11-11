@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
+import 'package:sqflite_mvvm_design/router/routes.dart';
 import '../providers/poet_model.dart';
 import 'config/router/app_routes.dart';
 import 'package:provider/provider.dart';
@@ -24,8 +25,8 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       debugShowCheckedModeBanner: false,
       // navigatorObservers: [routeObserver],
-      initialRoute: '/',
-      onGenerateRoute: _router.route,// Decides which theme to show, light or dark.
+      navigatorKey: AppNavigator.navigatorKey,
+      onGenerateRoute: AppNavigator.onGenerateRoute,// Decides which theme to show, light or dark.
     );
   }
 }

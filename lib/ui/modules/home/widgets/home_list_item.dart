@@ -8,8 +8,8 @@ Widget HomeListItem(
     {required Poet poet,
     double itemHeight = 0,
     double itemWidth = 0,
-    final void Function()? onClickDelete,
-    void Function()? onClickInfo,
+    required void Function() onClickDelete,
+    required void Function() onClickInfo,
     void Function()? onClickEdit}) {
   return Stack(
     children: [
@@ -63,9 +63,7 @@ Widget HomeListItem(
               ),
               AppIconButton(
                 icon: Icons.info_outline_rounded,
-                onPress: () {
-                  onClickInfo ?? ();
-                },
+                onPress: () => onClickInfo(),
               ),
             ],
           ),

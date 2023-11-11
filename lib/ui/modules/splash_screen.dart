@@ -1,5 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../router/routes.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -10,14 +14,10 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Timer(Duration(seconds: 4),
-    //         ()=>
-        //         Navigator.pushReplacement(context,
-        //     MaterialPageRoute(builder:
-        //         (context) => HomeScreen(viewModel: viewModel)
-        //     )
-    //     )
-    // );
+    Timer(Duration(seconds: 2),
+            ()=>
+                AppNavigator.push(Routes.home)
+    );
   }
 
   @override

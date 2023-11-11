@@ -4,6 +4,7 @@ import 'package:sqflite_mvvm_design/providers/poet_model.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/add_poet_dialogue.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/home_list_item.dart';
 import '../../../core/resources/app_colors.dart';
+import '../../../router/routes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -45,10 +46,7 @@ class HomeScreen extends StatelessWidget {
                   poetModel.deletePoet(poetModel.poets[index].id);
                 },
                 onClickInfo: () {
-                  Navigator.of(context).pushNamed(
-                    ProductDetailScreen.routeName,
-                    arguments: product.id,
-                  )
+                  AppNavigator.push(Routes.poetInfo);
                   // viewModel.onClickInfo(state.poets?[index] ?? Poet());
                 },
                 onClickEdit: () {
