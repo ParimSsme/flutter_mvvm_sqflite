@@ -14,7 +14,9 @@ class Repository
 
   readData(table) async {
     _database = await _databaseService.database;
-    return await _database?.query(table);
+    var data = await _database?.query(table);
+    _database?.close();
+    return data;
   }
 
   //Read a Single Record By ID
@@ -31,7 +33,11 @@ class Repository
 
   deleteDataById(table, itemId) async {
     _database = await _databaseService.database;
-    return await _database?.rawDelete("delete from $table where id=$itemId");
+    var count = await _database
+        ?.rawDelete('DELETE FROM $table WHERE id = ?', [itemId]);
+    assert(count == 1);
+
+    return count;
   }
 
 }

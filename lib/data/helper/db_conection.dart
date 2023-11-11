@@ -19,35 +19,22 @@ class DBConnection {
   }
 
   Future<Database> _initDatabase() async {
-
     var databasesPath = await getDatabasesPath();
-    var path = join(databasesPath, "assets/poets.db");
+    var path = join(databasesPath, "poets.db");
 
-// Check if the database exists
+
     var exists = await databaseExists(path);
 
     if (!exists) {
-      // Should happen only the first time you launch your application
-      print("Creating new copy from asset");
-
-      // Make sure the parent directory exists
       try {
         await Directory(dirname(path)).create(recursive: true);
       } catch (_) {}
-
-      // Copy from asset
-      ByteData data = await rootBundle.load(join("assets", "assets/poets.db"));
+      ByteData data = await rootBundle.load(url.join("assets", "poets.db"));
       List<int> bytes =
       data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
-
-      // Write and flush the bytes written
       await File(path).writeAsBytes(bytes, flush: true);
-    } else {
-      print("Opening existing database");
     }
-// open the database
-    var bomDataTable = await openDatabase(path, readOnly: true);
 
-    return bomDataTable;
+    return await openDatabase(path, readOnly: true);
   }
 }
