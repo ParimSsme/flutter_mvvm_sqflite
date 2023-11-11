@@ -46,11 +46,9 @@ class HomeScreen extends StatelessWidget {
                   poetModel.deletePoet(poetModel.poets[index].id);
                 },
                 onClickInfo: () {
-                  AppNavigator.push(Routes.poetInfo);
-                  // viewModel.onClickInfo(state.poets?[index] ?? Poet());
+                  AppNavigator.push(Routes.poetInfo, [poetModel.poets[index]]);
                 },
                 onClickEdit: () {
-                  // viewModel.onClickEdit(state.poets?[index] ?? Poet());
                 },
               );
             }),
@@ -62,12 +60,11 @@ class HomeScreen extends StatelessWidget {
           Dialog dialog = AddPoetDialogue(
             (poet) {
               poetModel.addPoet(poet);
-              // viewModel.onClickAdd(poet);
             },
           );
           showDialog(
               context: context, builder: (BuildContext context) => dialog);
-        }, // Add your onPressed code here!},
+        },
         backgroundColor: AppColors.primary,
         child: const Icon(Icons.add),
       ),

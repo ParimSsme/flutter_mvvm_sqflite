@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
+import 'package:sqflite_mvvm_design/data/models/Poet.dart';
 
 class PoetInfoScreen extends StatelessWidget {
   const PoetInfoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    final args = ModalRoute.of(context)!.settings.arguments as Poet;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('معلومات'),
+        title: Text(args.name),
       ),
       body: SingleChildScrollView(
           child: Padding(

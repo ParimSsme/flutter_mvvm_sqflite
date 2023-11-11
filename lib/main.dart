@@ -16,17 +16,14 @@ void main() {
 
 class MyApp extends StatelessWidget {
 
-  final _router = AppRouter();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: AppTheme.light,
       debugShowCheckedModeBanner: false,
-      // navigatorObservers: [routeObserver],
       navigatorKey: AppNavigator.navigatorKey,
-      onGenerateRoute: AppNavigator.onGenerateRoute,// Decides which theme to show, light or dark.
+      onGenerateRoute: AppNavigator.onGenerateRoute,
     );
   }
 }
