@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
 import 'package:sqflite_mvvm_design/core/enums/button_variant.dart';
-import 'package:sqflite_mvvm_design/core/resources/app_colors.dart';
+import 'package:sqflite_mvvm_design/core/resources/color_manager.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_button.dart';
 
 
@@ -23,7 +23,7 @@ Dialog AddPhotoDialogue(
               style: AppTheme.light.textTheme.headline2,
               textAlign: TextAlign.left,
             ),
-            const Divider(color: AppColors.gray, height: 2),
+            const Divider(color: ColorManager.gray, height: 2),
             AppButton(
               onPress: () {
                 _getFromGallery().then((val) {

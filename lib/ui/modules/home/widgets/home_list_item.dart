@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
-import 'package:sqflite_mvvm_design/core/resources/app_colors.dart';
+import 'package:sqflite_mvvm_design/core/resources/color_manager.dart';
+import '../../../../core/resources/assets_manager.dart';
 import '../../../../data/models/Poet.dart';
 import '../../../widgets/app_icon_button.dart';
 
@@ -24,7 +25,7 @@ Widget HomeListItem(
               children: [
                 Image(
                   image: AssetImage(
-                    'assets/images/${poet.image}.jpg',
+                    '$imagePath/${poet.image}.jpg',
                   ),
                   height: 110,
                 ),
@@ -45,7 +46,7 @@ Widget HomeListItem(
           height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: AppColors.primary,
+            color: ColorManager.primary,
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -86,7 +87,7 @@ Future<void> _showMyDialog(
         title: const Text(
           '!حذف',
           style: TextStyle(
-              fontSize: 22, fontWeight: FontWeight.bold, color: AppColors.red),
+              fontSize: 22, fontWeight: FontWeight.bold, color: ColorManager.red),
           textAlign: TextAlign.end,
         ),
         content: SingleChildScrollView(

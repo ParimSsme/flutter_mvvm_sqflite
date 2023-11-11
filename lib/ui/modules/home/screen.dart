@@ -4,7 +4,7 @@ import 'package:sqflite_mvvm_design/providers/poet_model.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/add_poet_dialogue.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/home_list_item.dart';
 import '../../../config/router/routes.dart';
-import '../../../core/resources/app_colors.dart';
+import '../../../core/resources/color_manager.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
           showDialog(
               context: context, builder: (BuildContext context) => dialog);
         },
-        backgroundColor: AppColors.primary,
+        backgroundColor: ColorManager.primary,
         child: const Icon(Icons.add),
       ),
     );

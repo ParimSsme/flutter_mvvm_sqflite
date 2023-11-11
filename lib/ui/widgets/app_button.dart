@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/core/enums/button_variant.dart';
-import 'package:sqflite_mvvm_design/core/resources/app_colors.dart';
+import 'package:sqflite_mvvm_design/core/resources/color_manager.dart';
 
 class AppButton extends StatelessWidget {
   /// text to be used as button text
@@ -42,7 +42,7 @@ Widget textButton(
           style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-            color: AppColors.black
+            color: ColorManager.black
           )
       )
   );
@@ -54,7 +54,7 @@ Widget containedButton(
 ) {
   return ElevatedButton(
     style: ElevatedButton.styleFrom(
-        primary: AppColors.primary,
+        primary: ColorManager.primary,
         padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         textStyle: TextStyle(
             fontSize: 18,

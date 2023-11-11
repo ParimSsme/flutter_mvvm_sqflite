@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
-import '../../core/resources/app_colors.dart';
+import '../../core/resources/color_manager.dart';
 
 class AppTheme {
 
   static ThemeData get light {
     return ThemeData(
-      primaryColor: AppColors.primary,
-      primaryColorLight: AppColors.primary,
-      cardColor: AppColors.cardBackground,
-      backgroundColor: AppColors.white,
-      scaffoldBackgroundColor: AppColors.background,
+      primaryColor: ColorManager.primary,
+      primaryColorLight: ColorManager.primary,
+      cardColor: ColorManager.cardBackground,
+      backgroundColor: ColorManager.white,
+      scaffoldBackgroundColor: ColorManager.background,
       hintColor: const Color(0x8a000000),
       errorColor: const Color(0xffd32f2f),
-      iconTheme: const IconThemeData(color: AppColors.iconColor),
+      iconTheme: const IconThemeData(color: ColorManager.iconColor),
       appBarTheme: const AppBarTheme(
         elevation: 0,
-        color: AppColors.primary,
-        shadowColor: AppColors.primary,
+        color: ColorManager.primary,
+        shadowColor: ColorManager.primary,
         iconTheme: IconThemeData(
-            color: AppColors.white,
+            color: ColorManager.white,
             size: 35
         ),
         titleTextStyle: TextStyle(
-          color: AppColors.white,
+          color: ColorManager.white,
           fontSize: 24,
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.normal,
@@ -44,7 +44,7 @@ class AppTheme {
       ),
       textTheme: const TextTheme(
         headline1: TextStyle(
-          color: AppColors.headlineText,
+          color: ColorManager.headlineText,
           fontSize: 28,
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.normal,

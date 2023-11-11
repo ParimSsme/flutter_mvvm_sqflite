@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/select_photo/dialogue_box.dart';
-import '../../../core/resources/app_colors.dart';
+import '../../../core/resources/color_manager.dart';
 
 class SelectImageButton extends StatefulWidget {
   const SelectImageButton({Key? key}) : super(key: key);
@@ -26,11 +26,11 @@ class _SelectImageButtonState extends State<SelectImageButton> {
               maxWidth: 100,
               maxHeight: 100,
             ),
-            color: AppColors.background,
+            color: ColorManager.background,
             child: imageFile == null
                 ?  const Icon(
               Icons.person,
-              color: AppColors.gray,
+              color: ColorManager.gray,
               size: 70,
             ) : Image.file(
               (imageFile!),
@@ -45,9 +45,9 @@ class _SelectImageButtonState extends State<SelectImageButton> {
           right: 0,
           child: ClipOval(
             child: Material(
-              color: AppColors.primary, // Button color
+              color: ColorManager.primary, // Button color
               child: InkWell(
-                splashColor: AppColors.white, // Splash color
+                splashColor: ColorManager.white, // Splash color
                 onTap: () {
                   Dialog dialog = AddPhotoDialogue(
                         (image) {
@@ -65,7 +65,7 @@ class _SelectImageButtonState extends State<SelectImageButton> {
                 child: SizedBox(width: 35,
                     height: 35,
                     child: Icon(
-                      Icons.add, color: AppColors.white
+                      Icons.add, color: ColorManager.white
                     )),
               ),
             ),
