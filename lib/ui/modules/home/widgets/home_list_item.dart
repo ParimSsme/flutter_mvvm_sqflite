@@ -5,18 +5,16 @@ import '../../../../data/models/Poet.dart';
 import '../../../widgets/app_icon_button.dart';
 
 Widget HomeListItem(
-    BuildContext context,
-    Poet poet,
-    double itemHeight,
-    double itemWidth,
-    void Function() onClickDelete,
-    void Function() onClickInfo,
-    void Function() onClickEdit
-) {
+    {required Poet poet,
+    double itemHeight = 0,
+    double itemWidth = 0,
+    final void Function()? onClickDelete,
+    void Function()? onClickInfo,
+    void Function()? onClickEdit}) {
   return Stack(
     children: [
       Container(
-        height: itemHeight-60,
+        height: itemHeight - 60,
         width: itemWidth,
         child: Card(
           elevation: 10,
@@ -24,11 +22,14 @@ Widget HomeListItem(
             padding: EdgeInsets.all(10.0),
             child: Column(
               children: [
-                Image(image: AssetImage(
-                  'assets/images/${poet.image}.jpg',),
+                Image(
+                  image: AssetImage(
+                    'assets/images/${poet.image}.jpg',
+                  ),
                   height: 110,
                 ),
-                Text(poet.name ?? "",
+                Text(
+                  poet.name ?? "",
                   style: AppTheme.light.textTheme.bodyText1,
                 ),
               ],
@@ -48,27 +49,25 @@ Widget HomeListItem(
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                AppIconButton(
-                  icon: Icons.delete_outline,
-                  onPress:(){
-                    _showMyDialog(context,
-                        poet.id, (){onClickDelete();});
-                  },
-                ),
-                AppIconButton(
-                  icon: Icons.edit,
-                  onPress:(){
-                    onClickEdit();
-                  },
-                ),
-                AppIconButton(
-                  icon: Icons.info_outline_rounded,
-                  onPress:(){
-                    onClickInfo();
-                  },
-                ),
-              ],
+            children: [
+              AppIconButton(
+                icon: Icons.delete_outline,
+                onPress: () {
+                  // _showMyDialog(context,
+                  //     poet.id, (){onClickDelete();});
+                },
+              ),
+              AppIconButton(
+                icon: Icons.edit,
+                onPress: () => onClickEdit ?? (),
+              ),
+              AppIconButton(
+                icon: Icons.info_outline_rounded,
+                onPress: () {
+                  onClickInfo ?? ();
+                },
+              ),
+            ],
           ),
         ),
       ),
@@ -77,45 +76,40 @@ Widget HomeListItem(
 }
 
 Future<void> _showMyDialog(
-    BuildContext context,
-    int? poetId,
-    void Function() onClickDelete,
+  BuildContext context,
+  int? poetId,
+  void Function() onClickDelete,
 ) async {
   return showDialog<void>(
     context: context,
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text('!حذف',style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-          color: AppColors.red
-        ),
+        title: const Text(
+          '!حذف',
+          style: TextStyle(
+              fontSize: 22, fontWeight: FontWeight.bold, color: AppColors.red),
           textAlign: TextAlign.end,
         ),
         content: SingleChildScrollView(
           child: ListBody(
             children: const <Widget>[
-              Text('آیا میخواهید این شاعر را حذف نمایید؟',style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold)),
+              Text('آیا میخواهید این شاعر را حذف نمایید؟',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             ],
           ),
         ),
         actions: <Widget>[
           TextButton(
-            child: const Text('لغو', style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold)),
+            child: const Text('لغو',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             onPressed: () {
               Navigator.of(context).pop();
             },
           ),
           TextButton(
-            child: Text('تایید', style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold)
-            ),
+            child: Text('تایید',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             onPressed: () {
               onClickDelete();
               Navigator.of(context).pop();
