@@ -25,7 +25,7 @@ Widget HomeListItem(
               children: [
                 Image(
                   image: AssetImage(
-                    '$imagePath/${poet.image}.jpg',
+                    '$imagePath/${poet.image}.$imageType',
                   ),
                   height: 110,
                 ),
