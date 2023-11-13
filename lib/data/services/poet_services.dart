@@ -1,18 +1,15 @@
 import 'package:sqflite_mvvm_design/data/models/Poet.dart';
 import '../helper/repository.dart';
 
-class PoetService
-{
+class PoetService {
   late Repository _repository;
-  PoetService(){
+  PoetService() {
     _repository = Repository();
   }
 
-  AddPoet(Poet poet) async{
-    var res = await _repository.insertData(
-        Poet.tableKey,
-        ['name', 'info', 'image']
-    );
+  addPoet(Poet poet) async {
+    var res =
+        await _repository.insertData(Poet.tableKey, ['name', 'info', 'image']);
     readAllPoets();
     return res;
   }
@@ -29,7 +26,8 @@ class PoetService
 
   Future<List<Poet>> searchPoets(String name) async {
     List<Poet> poetList = <Poet>[];
-    var result = await _repository.searchData(Poet.tableKey, Poet.nameKey, name);
+    var result =
+        await _repository.searchData(Poet.tableKey, Poet.nameKey, name);
     result.forEach((map) {
       Poet poet = Poet.fromMap(map);
       poetList.add(poet);
@@ -38,23 +36,14 @@ class PoetService
   }
 
   readPoetById(int id) async {
-    return await _repository.readDataById(
-        Poet.tableKey, id
-    );
+    return await _repository.readDataById(Poet.tableKey, id);
   }
 
   updatePoet(Poet poet) async {
-    return await _repository.updateData(
-        Poet.tableKey,
-        poet
-    );
+    return await _repository.updateData(Poet.tableKey, poet.poetMap());
   }
 
   deletePoet(poetId) async {
-    return await _repository.deleteDataById(
-        Poet.tableKey,
-        poetId
-    );
+    return await _repository.deleteDataById(Poet.tableKey, poetId);
   }
-
 }

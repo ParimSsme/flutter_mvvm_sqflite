@@ -33,7 +33,7 @@ class PoetModel with ChangeNotifier {
 
   Future<void> addPoet(Poet poet) async {
     final poetService = PoetService();
-    poetService.AddPoet(poet);
+    poetService.addPoet(poet);
   }
 
   Future<void> updatePoet(int id, Poet newPoet) async {
