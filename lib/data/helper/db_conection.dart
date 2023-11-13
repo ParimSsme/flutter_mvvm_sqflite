@@ -35,6 +35,6 @@ class DBConnection {
       await File(path).writeAsBytes(bytes, flush: true);
     }
 
-    return await openDatabase(path, readOnly: true);
+    return await openDatabase(path);
   }
 }

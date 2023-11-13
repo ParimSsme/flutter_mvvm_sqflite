@@ -1,3 +1,5 @@
+import 'dart:isolate';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sqflite_mvvm_design/providers/poet_model.dart';
@@ -7,7 +9,10 @@ import '../../../config/router/routes.dart';
 import '../../../core/resources/color_manager.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final TextEditingController _searchController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +24,25 @@ class HomeScreen extends StatelessWidget {
 
     PoetModel poetModel = Provider.of<PoetModel>(context, listen: true);
 
+    void myFunction(String message) {
+      poetModel.searchPoets(message);
+    }
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'شاعران',
+        title: TextField(
+          controller: _searchController,
+          style: const TextStyle(color: Colors.white),
+          cursorColor: Colors.white,
+          decoration: const InputDecoration(
+            hintText: 'Search...',
+            hintStyle: TextStyle(color: Colors.white54),
+            border: InputBorder.none,
+          ),
+          onChanged: (value) {
+            Isolate.spawn(myFunction, value);
+          },
         ),
       ),
       body: SafeArea(
@@ -46,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                   poetModel.deletePoet(poetModel.poets[index].id);
                 },
                 onClickInfo: () {
-                  AppNavigator.push(Routes.poetInfo, [poetModel.poets[index]]);
+                  AppNavigator.push(Routes.poetInfo, ["poetModel.poets[index]"]);
                 },
                 onClickEdit: () {
                 },

@@ -37,7 +37,7 @@ class AppNavigator {
         return FadeRoute(page: SplashScreen());
 
       case _Paths.home:
-        return FadeRoute(page: const HomeScreen());
+        return FadeRoute(page: HomeScreen());
 
       case _Paths.poetEdit:
         return FadeRoute(page: const PoetEditScreen());
@@ -46,7 +46,7 @@ class AppNavigator {
         return FadeRoute(page: const PoetInfoScreen());
 
       default:
-        return FadeRoute(page: const HomeScreen());
+        return FadeRoute(page: HomeScreen());
     }
   }
 

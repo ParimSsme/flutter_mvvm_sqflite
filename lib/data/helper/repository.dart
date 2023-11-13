@@ -1,4 +1,5 @@
 import 'package:sqflite/sqflite.dart';
+import '../models/Poet.dart';
 import 'db_conection.dart';
 
 class Repository
@@ -8,13 +9,25 @@ class Repository
 
   insertData(table, data) async {
     _database = await _databaseService.database;
-    return await _database?.insert(table, data);
+    return await _database?.insert(table, {
+      'name':'Ahmad',
+      'info': 'Ahmadi',
+      'image':'we.jpg'
+    });
+    // return await _database?.insert(table, data);
   }
 
 
   readData(table) async {
     _database = await _databaseService.database;
-    var data = await _database?.query(table);
+    var data = _database?.query(table);
+    _database?.close();
+    return data;
+  }
+
+  searchData(table, searchedInColumn, searchedInName) async {
+    _database = await _databaseService.database;
+    var data = _database?.query(table, where: " $searchedInColumn Like '%$searchedInName%'");
     _database?.close();
     return data;
   }

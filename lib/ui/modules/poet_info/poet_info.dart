@@ -9,6 +9,7 @@ class PoetInfoScreen extends StatelessWidget {
 
     final args = ModalRoute.of(context)?.settings.arguments as Poet?;
 
+    print("object $args");
     return Scaffold(
       appBar: AppBar(
         title: Text(args?.name ?? ''),

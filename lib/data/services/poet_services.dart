@@ -9,16 +9,27 @@ class PoetService
   }
 
   AddPoet(Poet poet) async{
-    return await _repository.insertData(
+    var res = await _repository.insertData(
         Poet.tableKey,
-        poet
-        // poet.poetMap()
+        ['name', 'info', 'image']
     );
+    readAllPoets();
+    return res;
   }
 
   Future<List<Poet>> readAllPoets() async {
     List<Poet> poetList = <Poet>[];
     var result = await _repository.readData(Poet.tableKey);
+    result.forEach((map) {
+      Poet poet = Poet.fromMap(map);
+      poetList.add(poet);
+    });
+    return poetList;
+  }
+
+  Future<List<Poet>> searchPoets(String name) async {
+    List<Poet> poetList = <Poet>[];
+    var result = await _repository.searchData(Poet.tableKey, Poet.nameKey, name);
     result.forEach((map) {
       Poet poet = Poet.fromMap(map);
       poetList.add(poet);
