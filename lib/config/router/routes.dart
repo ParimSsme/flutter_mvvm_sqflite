@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:sqflite_mvvm_design/ui/modules/add_poet/screen.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/screen.dart';
 import 'package:sqflite_mvvm_design/ui/modules/poet_edit/poet_edit.dart';
 import 'package:sqflite_mvvm_design/ui/modules/poet_info/poet_info.dart';
@@ -10,6 +11,7 @@ enum Routes {
   home,
   poetEdit,
   poetInfo,
+  addPoet,
 }
 
 class _Paths {
@@ -17,12 +19,14 @@ class _Paths {
   static const String home = '/home';
   static const String poetEdit = '/poetEdit';
   static const String poetInfo = '/poetInfo';
+  static const String addPoet = '/addPoet';
 
   static const Map<Routes, String> _pathMap = {
     Routes.splash: _Paths.splash,
     Routes.home: _Paths.home,
     Routes.poetEdit: _Paths.poetEdit,
     Routes.poetInfo: _Paths.poetInfo,
+    Routes.addPoet: _Paths.addPoet,
   };
 
   static String of(Routes route) => _pathMap[route] ?? splash;
@@ -44,6 +48,9 @@ class AppNavigator {
 
       case _Paths.poetInfo:
         return FadeRoute(page: const PoetInfoScreen());
+
+      case _Paths.addPoet:
+        return FadeRoute(page: AddPoetScreen());
 
       default:
         return FadeRoute(page: HomeScreen());

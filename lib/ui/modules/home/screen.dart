@@ -1,9 +1,7 @@
 import 'dart:isolate';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sqflite_mvvm_design/providers/poet_model.dart';
-import 'package:sqflite_mvvm_design/ui/modules/home/widgets/add_poet_dialogue.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/widgets/home_list_item.dart';
 import '../../../config/router/routes.dart';
 import '../../../core/resources/color_manager.dart';
@@ -76,13 +74,7 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Dialog dialog = AddPoetDialogue(
-            (poet) {
-              poetModel.addPoet(poet);
-            },
-          );
-          showDialog(
-              context: context, builder: (BuildContext context) => dialog);
+          AppNavigator.push(Routes.addPoet);
         },
         backgroundColor: ColorManager.primary,
         child: const Icon(Icons.add),
