@@ -9,7 +9,7 @@ class PoetService {
 
   addPoet(Poet poet) async {
     var res =
-        await _repository.insertData(Poet.tableKey, ['name', 'info', 'image']);
+        await _repository.insertData(Poet.tableKey, poet.poetMap());
     readAllPoets();
     return res;
   }

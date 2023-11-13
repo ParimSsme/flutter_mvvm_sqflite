@@ -29,8 +29,7 @@ class Poet {
   }
 
   poetMap() {
-    var mapping = <String, dynamic>{};
-    mapping[idKey] = id;
+    var mapping = <String, String>{};
     mapping[nameKey] = name;
     mapping[infoKey] = info;
     mapping[imageKey] = image;

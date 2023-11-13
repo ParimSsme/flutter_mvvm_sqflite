@@ -1,5 +1,4 @@
 import 'package:sqflite/sqflite.dart';
-import '../models/Poet.dart';
 import 'db_conection.dart';
 
 class Repository
@@ -7,22 +6,17 @@ class Repository
   static final DBConnection _databaseService = DBConnection();
   static late Database? _database;
 
-  insertData(table, data) async {
+  insertData(table, Map<String, String> data) async {
     _database = await _databaseService.database;
-    return await _database?.insert(table, {
-      'name':'Ahmad',
-      'info': 'Ahmadi',
-      'image':'we.jpg'
-    });
-    // return await _database?.insert(table, data);
+    return await _database?.insert(table, data);
   }
 
 
   readData(table) async {
-    _database = await _databaseService.database;
-    var data = _database?.query(table);
-    _database?.close();
-    return data;
+    // _database = await _databaseService.database;
+    // var data = _database?.query(table);
+    // _database?.close();
+    // return data;
   }
 
   searchData(table, searchedInColumn, searchedInName) async {
