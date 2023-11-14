@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                   poetModel.deletePoet(poetModel.poets[index].id);
                 },
                 onClickInfo: () {
-                  AppNavigator.push(Routes.poetInfo, ["poetModel.poets[index]"]);
+                  AppNavigator.push(Routes.poetInfo, ["1"]);
                 },
                 onClickEdit: () {
                 },
@@ -73,9 +73,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          AppNavigator.push(Routes.addPoet);
-        },
+        onPressed: () => AppNavigator.push(Routes.addPoet, ['556']),
         backgroundColor: ColorManager.primary,
         child: const Icon(Icons.add),
       ),

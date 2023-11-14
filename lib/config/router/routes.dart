@@ -36,6 +36,10 @@ class AppNavigator {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
   static Route onGenerateRoute(RouteSettings settings) {
+
+    final arguments = settings.arguments as List<String>?;
+    final id = arguments?.first ?? '1';
+
     switch (settings.name) {
       case _Paths.splash:
         return FadeRoute(page: SplashScreen());
@@ -47,7 +51,7 @@ class AppNavigator {
         return FadeRoute(page: const PoetEditScreen());
 
       case _Paths.poetInfo:
-        return FadeRoute(page: const PoetInfoScreen());
+        return FadeRoute(page: PoetInfoScreen(id: id));
 
       case _Paths.addPoet:
         return FadeRoute(page: AddPoetScreen());
