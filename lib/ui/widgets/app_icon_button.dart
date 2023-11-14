@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppIconButton extends StatelessWidget {
   /// Icon to be used as button
   final IconData icon;
+  final Color color;
 
   /// Button's action. When `isEnabled` is false, it does nothing.
   final void Function() onPress;
@@ -10,6 +11,7 @@ class AppIconButton extends StatelessWidget {
   const AppIconButton({
     required this.icon,
     required this.onPress,
+    required this.color,
     Key? key,
   }) : super(key: key);
 
@@ -18,7 +20,7 @@ class AppIconButton extends StatelessWidget {
     return IconButton(
       iconSize: 30,
       onPressed: () => onPress(),
-      icon: Icon(icon),
+      icon: Icon(icon, color: color),
     );
   }
 }

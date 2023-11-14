@@ -20,7 +20,7 @@ class DBConnection {
 
   Future<Database> _initDatabase() async {
     var databasesPath = await getDatabasesPath();
-    var path = join(databasesPath, "poets.db");
+    var path = join(databasesPath, "poets1.db");
 
 
     var exists = await databaseExists(path);
@@ -29,7 +29,7 @@ class DBConnection {
       try {
         await Directory(dirname(path)).create(recursive: true);
       } catch (_) {}
-      ByteData data = await rootBundle.load(url.join("assets", "poets.db"));
+      ByteData data = await rootBundle.load(url.join("assets", "poets1.db"));
       List<int> bytes =
       data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
       await File(path).writeAsBytes(bytes, flush: true);

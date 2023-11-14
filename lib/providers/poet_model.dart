@@ -42,6 +42,16 @@ class PoetModel with ChangeNotifier {
 
   }
 
+  addFavoritePoet(Poet poet) async {
+    poet.isFavorite = true;
+    final poetService = PoetService();
+    final result = await poetService.updatePoet(poet);
+    if(result == 1){
+      _poets[poet.id-1] = poet;
+      notifyListeners();
+    }
+  }
+
   Future<void> deletePoet(int id) async {
     final poetService = PoetService();
     poetService.deletePoet(id);

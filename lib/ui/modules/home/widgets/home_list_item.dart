@@ -57,14 +57,17 @@ Widget HomeListItem(
                   // _showMyDialog(context,
                   //     poet.id, (){onClickDelete();});
                 },
+                color: ColorManager.white,
               ),
               AppIconButton(
                 icon: Icons.edit,
                 onPress: () => onClickEdit ?? (),
+                color: ColorManager.white,
               ),
               AppIconButton(
                 icon: Icons.info_outline_rounded,
                 onPress: () => onClickInfo(),
+                color: ColorManager.white,
               ),
             ],
           ),
