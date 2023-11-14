@@ -66,6 +66,7 @@ class HomeScreen extends StatelessWidget {
                   AppNavigator.push(Routes.poetInfo, [(index+1).toString()]);
                 },
                 onClickEdit: () {
+                  AppNavigator.push(Routes.poetEdit, [(index+1).toString()]);
                 },
               );
             }),
@@ -73,7 +74,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => AppNavigator.push(Routes.addPoet, ['556']),
+        onPressed: () => AppNavigator.push(Routes.addPoet),
         backgroundColor: ColorManager.primary,
         child: const Icon(Icons.add),
       ),

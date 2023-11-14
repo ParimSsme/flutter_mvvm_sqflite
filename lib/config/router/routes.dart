@@ -48,7 +48,7 @@ class AppNavigator {
         return FadeRoute(page: HomeScreen());
 
       case _Paths.poetEdit:
-        return FadeRoute(page: const PoetEditScreen());
+        return FadeRoute(page: PoetEditScreen(id: id));
 
       case _Paths.poetInfo:
         return FadeRoute(page: PoetInfoScreen(id: id));

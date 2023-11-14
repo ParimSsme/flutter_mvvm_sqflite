@@ -11,7 +11,7 @@ Widget HomeListItem(
     double itemWidth = 0,
     required void Function() onClickDelete,
     required void Function() onClickInfo,
-    void Function()? onClickEdit}) {
+    required void Function() onClickEdit}) {
   return Stack(
     children: [
       Container(
@@ -61,7 +61,7 @@ Widget HomeListItem(
               ),
               AppIconButton(
                 icon: Icons.edit,
-                onPress: () => onClickEdit ?? (),
+                onPress: () => onClickEdit(),
                 color: ColorManager.white,
               ),
               AppIconButton(
@@ -90,7 +90,9 @@ Future<void> _showMyDialog(
         title: const Text(
           '!حذف',
           style: TextStyle(
-              fontSize: 22, fontWeight: FontWeight.bold, color: ColorManager.red),
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: ColorManager.red),
           textAlign: TextAlign.end,
         ),
         content: SingleChildScrollView(
