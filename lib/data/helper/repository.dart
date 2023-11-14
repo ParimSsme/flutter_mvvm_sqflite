@@ -13,10 +13,10 @@ class Repository
 
 
   readData(table) async {
-    // _database = await _databaseService.database;
-    // var data = _database?.query(table);
-    // _database?.close();
-    // return data;
+    _database = await _databaseService.database;
+    var data = _database?.query(table);
+    _database?.close();
+    return data;
   }
 
   searchData(table, searchedInColumn, searchedInName) async {

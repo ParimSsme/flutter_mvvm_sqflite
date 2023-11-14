@@ -34,6 +34,8 @@ class PoetModel with ChangeNotifier {
   Future<void> addPoet(Poet poet) async {
     final poetService = PoetService();
     poetService.addPoet(poet);
+    fetchAndSetPoets();
+    notifyListeners();
   }
 
   Future<void> updatePoet(int id, Poet newPoet) async {

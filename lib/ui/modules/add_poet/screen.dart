@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../core/enums/button_variant.dart';
 import '../../../data/models/Poet.dart';
+import '../../../providers/poet_model.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_text_field.dart';
 import '../../widgets/select_photo/select_image_button.dart';
@@ -12,6 +14,9 @@ class AddPoetScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    PoetModel poetModel = Provider.of<PoetModel>(context, listen: false);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('اضافه نمودن شاعر'),
@@ -57,9 +62,7 @@ class AddPoetScreen extends StatelessWidget {
                       child: AppButton(
                         text: 'ذخیره',
                         variant: ButtonVariantEnum.text,
-                        onPress: () {
-
-                        },
+                        onPress: () => poetModel.addPoet(newPoet),
                       ),
                     ),
                   )
