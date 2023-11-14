@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../config/theme/app_theme.dart';
+import '../../../data/models/Poet.dart';
+import '../../../providers/poet_model.dart';
 
 class PoetInfoScreen extends StatelessWidget {
 
@@ -8,29 +12,32 @@ class PoetInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    PoetModel poetModel = Provider.of<PoetModel>(context, listen: false);
+    Poet poet = poetModel.findById(int.parse(id));
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(id),
+        title: Text(poet.name),
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(16.0),
             child: Column(
               children: [
-                // Image(image: AssetImage(
-                //   'assets/images/${state.poet?.image}.jpg',),
-                //   height: 140,
-                // ),
-                // SizedBox(height: 5),
-                // Text(state.poet?.name ?? "",
-                //   textAlign: TextAlign.center,
-                //   style: AppTheme.light.textTheme.headline1,
-                // ),
-                // SizedBox(height: 15),
-                // Text(state.poet?.info ?? "",
-                //     textAlign: TextAlign.right,
-                //     style: AppTheme.light.textTheme.bodyText1
-                // ),
+                Image(image: AssetImage(
+                  'assets/images/${poet.image}.jpg',),
+                  height: 140,
+                ),
+                const SizedBox(height: 5),
+                Text(poet.name,
+                  textAlign: TextAlign.center,
+                  style: AppTheme.light.textTheme.headline1,
+                ),
+                const SizedBox(height: 15),
+                Text(poet.info,
+                    textAlign: TextAlign.right,
+                    style: AppTheme.light.textTheme.bodyText1
+                ),
               ],
             ),
           )

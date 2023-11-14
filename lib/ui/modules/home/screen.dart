@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                   poetModel.deletePoet(poetModel.poets[index].id);
                 },
                 onClickInfo: () {
-                  AppNavigator.push(Routes.poetInfo, ["1"]);
+                  AppNavigator.push(Routes.poetInfo, [(index+1).toString()]);
                 },
                 onClickEdit: () {
                 },
