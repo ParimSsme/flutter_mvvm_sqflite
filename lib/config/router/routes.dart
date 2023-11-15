@@ -3,12 +3,14 @@ import 'package:sqflite_mvvm_design/ui/modules/add_poet/screen.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/screen.dart';
 import 'package:sqflite_mvvm_design/ui/modules/poet_edit/poet_edit.dart';
 import 'package:sqflite_mvvm_design/ui/modules/poet_info/poet_info.dart';
+import 'package:sqflite_mvvm_design/ui/modules/tabs/screen.dart';
 import '../../ui/modules/splash_screen.dart';
 import 'fade_page_route.dart';
 
 enum Routes {
   splash,
   home,
+  tabs,
   poetEdit,
   poetInfo,
   addPoet,
@@ -17,6 +19,7 @@ enum Routes {
 class _Paths {
   static const String splash = '/';
   static const String home = '/home';
+  static const String tabs = '/tabs';
   static const String poetEdit = '/poetEdit';
   static const String poetInfo = '/poetInfo';
   static const String addPoet = '/addPoet';
@@ -24,6 +27,7 @@ class _Paths {
   static const Map<Routes, String> _pathMap = {
     Routes.splash: _Paths.splash,
     Routes.home: _Paths.home,
+    Routes.tabs: _Paths.tabs,
     Routes.poetEdit: _Paths.poetEdit,
     Routes.poetInfo: _Paths.poetInfo,
     Routes.addPoet: _Paths.addPoet,
@@ -36,13 +40,15 @@ class AppNavigator {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
   static Route onGenerateRoute(RouteSettings settings) {
-
     final arguments = settings.arguments as List<String>?;
     final id = arguments?.first ?? '1';
 
     switch (settings.name) {
       case _Paths.splash:
         return FadeRoute(page: SplashScreen());
+
+      case _Paths.tabs:
+        return FadeRoute(page: const TabsScreen());
 
       case _Paths.home:
         return FadeRoute(page: HomeScreen());
