@@ -8,8 +8,7 @@ class PoetService {
   }
 
   addPoet(Poet poet) async {
-    var res =
-        await _repository.insertData(Poet.tableKey, poet.poetMap());
+    var res = await _repository.insertData(Poet.tableKey, poet.poetMap());
     readAllPoets();
     return res;
   }
@@ -26,7 +25,8 @@ class PoetService {
 
   Future<List<Poet>> readAllFavoritePoets() async {
     List<Poet> poetList = <Poet>[];
-    var result = await _repository.readDataByCondition(Poet.tableKey, Poet.isFavoriteKey, 1);
+    var result = await _repository.readDataByCondition(
+        Poet.tableKey, Poet.isFavoriteKey, 1);
     result.forEach((map) {
       Poet poet = Poet.fromMap(map);
       poetList.add(poet);

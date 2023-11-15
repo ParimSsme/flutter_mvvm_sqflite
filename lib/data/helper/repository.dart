@@ -1,8 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 import 'db_conection.dart';
 
-class Repository
-{
+class Repository {
   static final DBConnection _databaseService = DBConnection();
   static late Database? _database;
 
@@ -10,7 +9,6 @@ class Repository
     _database = await _databaseService.database;
     return await _database?.insert(table, data);
   }
-
 
   readData(table) async {
     _database = await _databaseService.database;
@@ -20,7 +18,8 @@ class Repository
 
   searchData(table, searchedInColumn, searchedInName) async {
     _database = await _databaseService.database;
-    var data = _database?.query(table, where: " $searchedInColumn Like '%$searchedInName%'");
+    var data = _database?.query(table,
+        where: " $searchedInColumn Like '%$searchedInName%'");
     return data;
   }
 
@@ -32,7 +31,8 @@ class Repository
 
   readDataByCondition(table, column, condition) async {
     _database = await _databaseService.database;
-    return await _database?.query('poet', where: '$column=?', whereArgs: [condition]);
+    return await _database
+        ?.query('poet', where: '$column=?', whereArgs: [condition]);
   }
 
   updateData(table, data) async {
@@ -43,11 +43,10 @@ class Repository
 
   deleteDataById(table, itemId) async {
     _database = await _databaseService.database;
-    var count = await _database
-        ?.rawDelete('DELETE FROM $table WHERE id = ?', [itemId]);
+    var count =
+        await _database?.rawDelete('DELETE FROM $table WHERE id = ?', [itemId]);
     assert(count == 1);
 
     return count;
   }
-
 }

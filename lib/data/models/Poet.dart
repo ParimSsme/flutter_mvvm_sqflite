@@ -1,6 +1,4 @@
-
 class Poet {
-
   static const String tableKey = "poet";
   static const String idKey = "id";
   static const String nameKey = "name";
@@ -19,16 +17,16 @@ class Poet {
     this.name = "",
     this.info = "",
     this.image = "",
-    this.isFavorite = false
+    this.isFavorite = false,
   });
 
   factory Poet.fromMap(Map<String, dynamic> map) {
     return Poet(
-        id: map[idKey]?.toInt() ?? 0,
-        name: map[nameKey] ?? '',
-        info: map[infoKey] ?? '',
-        image: map[imageKey] ?? '',
-        isFavorite: (map[isFavoriteKey] ?? 0) == 0 ? false : true
+      id: map[idKey]?.toInt() ?? 0,
+      name: map[nameKey] ?? '',
+      info: map[infoKey] ?? '',
+      image: map[imageKey] ?? '',
+      isFavorite: (map[isFavoriteKey] ?? 0) == 0 ? false : true,
     );
   }
 
