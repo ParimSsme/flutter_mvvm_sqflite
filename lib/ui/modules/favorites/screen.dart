@@ -72,11 +72,11 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               },
               onClickInfo: () {
                 AppNavigator.push(
-                    Routes.poetInfo, [(index + 1).toString()]);
+                    Routes.poetInfo, [(poetModel.poets[index].id).toString()]);
               },
               onClickEdit: () {
                 AppNavigator.push(
-                    Routes.poetEdit, [(index + 1).toString()]);
+                    Routes.poetEdit, [(poetModel.poets[index].id).toString()]);
               },
             );
           }),
