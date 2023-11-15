@@ -6,7 +6,9 @@ import '../../../../data/models/Poet.dart';
 import '../../../widgets/app_icon_button.dart';
 
 Widget HomeListItem(
-    {required Poet poet,
+    {
+      required BuildContext context,
+      required Poet poet,
     double itemHeight = 0,
     double itemWidth = 0,
     required void Function() onClickDelete,
@@ -53,10 +55,8 @@ Widget HomeListItem(
             children: [
               AppIconButton(
                 icon: Icons.delete_outline,
-                onPress: () {
-                  // _showMyDialog(context,
-                  //     poet.id, (){onClickDelete();});
-                },
+                onPress: () => _showMyDialog(context,
+                      poet.id, (){onClickDelete();}),
                 color: ColorManager.white,
               ),
               AppIconButton(

@@ -44,9 +44,7 @@ class Repository {
   deleteDataById(table, itemId) async {
     _database = await _databaseService.database;
     var count =
-        await _database?.rawDelete('DELETE FROM $table WHERE id = ?', [itemId]);
-    assert(count == 1);
-
+        await _database?.delete(table, where: 'id=?', whereArgs: [itemId]);
     return count;
   }
 }

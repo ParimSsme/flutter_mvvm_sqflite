@@ -64,6 +64,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
           mainAxisSpacing: 20,
           children: List.generate(poetModel.poets.length, (index) {
             return HomeListItem(
+              context: context,
               poet: poetModel.poets[index],
               itemHeight: itemHeight,
               itemWidth: itemWidth,

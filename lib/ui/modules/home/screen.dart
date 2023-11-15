@@ -64,12 +64,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisSpacing: 20,
                 children: List.generate(poetModel.poets.length, (index) {
                   return HomeListItem(
+                    context: context,
                     poet: poetModel.poets[index],
                     itemHeight: itemHeight,
                     itemWidth: itemWidth,
-                    onClickDelete: () {
-                      poetModel.deletePoet(poetModel.poets[index].id ?? -1);
-                    },
+                    onClickDelete: () => poetModel.deletePoet(poetModel.poets[index].id ?? -1),
                     onClickInfo: () {
                       AppNavigator.push(
                           Routes.poetInfo, [(poetModel.poets[index].id).toString()]);
