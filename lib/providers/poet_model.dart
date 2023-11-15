@@ -23,7 +23,6 @@ class PoetModel with ChangeNotifier {
   Future<void> searchPoets(String name) async {
     final poetService = PoetService();
     List<Poet> poets = await poetService.searchPoets(name);
-    // _poets.clear();
     _poets = poets;
     notifyListeners();
   }

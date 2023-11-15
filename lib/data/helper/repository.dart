@@ -15,14 +15,12 @@ class Repository
   readData(table) async {
     _database = await _databaseService.database;
     var data = _database?.query(table);
-    _database?.close();
     return data;
   }
 
   searchData(table, searchedInColumn, searchedInName) async {
     _database = await _databaseService.database;
     var data = _database?.query(table, where: " $searchedInColumn Like '%$searchedInName%'");
-    _database?.close();
     return data;
   }
 

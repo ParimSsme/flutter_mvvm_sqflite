@@ -49,16 +49,16 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         title: TextField(
           controller: _searchController,
+          textAlign: TextAlign.right,
+          textDirection: TextDirection.rtl,
           style: const TextStyle(color: Colors.white),
           cursorColor: Colors.white,
           decoration: const InputDecoration(
-            hintText: 'Search...',
+            hintText: ' ... جستجو',
             hintStyle: TextStyle(color: Colors.white54),
             border: InputBorder.none,
           ),
-          onChanged: (value) {
-            poetModel.searchPoets(value);
-          },
+          onChanged: (value) => poetModel.searchPoets(value),
         ),
       ),
       body: _isLoading
