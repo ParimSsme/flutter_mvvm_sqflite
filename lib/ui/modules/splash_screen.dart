@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import '../../config/router/routes.dart';
 
 class SplashScreen extends StatefulWidget {
+
+  const SplashScreen({super.key});
+
   @override
   SplashScreenState createState() => SplashScreenState();
 }

@@ -30,7 +30,7 @@ Widget HomeListItem(
                   height: 110,
                 ),
                 Text(
-                  poet.name ?? "",
+                  poet.name,
                   style: AppTheme.light.textTheme.bodyText1,
                 ),
               ],
@@ -95,9 +95,9 @@ Future<void> _showMyDialog(
               color: ColorManager.red),
           textAlign: TextAlign.end,
         ),
-        content: SingleChildScrollView(
+        content:const  SingleChildScrollView(
           child: ListBody(
-            children: const <Widget>[
+            children: <Widget>[
               Text('آیا میخواهید این شاعر را حذف نمایید؟',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             ],
@@ -112,7 +112,7 @@ Future<void> _showMyDialog(
             },
           ),
           TextButton(
-            child: Text('تایید',
+            child: const Text('تایید',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             onPressed: () {
               onClickDelete();

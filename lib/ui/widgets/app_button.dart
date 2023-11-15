@@ -39,7 +39,7 @@ Widget textButton(
   return TextButton(
       onPressed: onPress,
       child: Text(text,
-          style: TextStyle(
+          style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
             color: ColorManager.black
@@ -55,8 +55,8 @@ Widget containedButton(
   return ElevatedButton(
     style: ElevatedButton.styleFrom(
         primary: ColorManager.primary,
-        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-        textStyle: TextStyle(
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+        textStyle: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold)
     ),
@@ -72,7 +72,7 @@ Widget outlinedButton(
   return OutlinedButton(
     onPressed: onPress,
     child: Text(text,
-        style: TextStyle(
+        style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold)
     ),

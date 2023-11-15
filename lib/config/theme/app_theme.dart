@@ -11,7 +11,6 @@ class AppTheme {
       backgroundColor: ColorManager.white,
       scaffoldBackgroundColor: ColorManager.background,
       hintColor: const Color(0x8a000000),
-      errorColor: const Color(0xffd32f2f),
       iconTheme: const IconThemeData(color: ColorManager.iconColor),
       appBarTheme: const AppBarTheme(
         elevation: 0,
@@ -43,7 +42,7 @@ class AppTheme {
         ),
       ),
       textTheme: const TextTheme(
-        headline1: TextStyle(
+        headlineLarge: TextStyle(
           color: ColorManager.headlineText,
           fontSize: 28,
           fontWeight: FontWeight.bold,

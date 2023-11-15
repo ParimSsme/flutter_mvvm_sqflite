@@ -62,7 +62,7 @@ class _SelectImageButtonState extends State<SelectImageButton> {
                   showDialog(
                       context: context, builder: (BuildContext context) => dialog);
                 },
-                child: SizedBox(width: 35,
+                child: const SizedBox(width: 35,
                     height: 35,
                     child: Icon(
                       Icons.add, color: ColorManager.white
