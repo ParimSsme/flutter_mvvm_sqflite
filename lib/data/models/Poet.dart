@@ -6,14 +6,14 @@ class Poet {
   static const String imageKey = "image";
   static const String isFavoriteKey = "isFavorite";
 
-  int id;
+  int? id;
   String name;
   String info;
   String image;
   bool isFavorite;
 
   Poet({
-    this.id = -1,
+    this.id,
     this.name = "",
     this.info = "",
     this.image = "",
@@ -22,7 +22,7 @@ class Poet {
 
   factory Poet.fromMap(Map<String, dynamic> map) {
     return Poet(
-      id: map[idKey]?.toInt() ?? 0,
+      id: map[idKey]?.toInt(),
       name: map[nameKey] ?? '',
       info: map[infoKey] ?? '',
       image: map[imageKey] ?? '',

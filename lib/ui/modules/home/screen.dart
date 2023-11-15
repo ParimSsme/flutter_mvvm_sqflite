@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemHeight: itemHeight,
                     itemWidth: itemWidth,
                     onClickDelete: () {
-                      poetModel.deletePoet(poetModel.poets[index].id);
+                      poetModel.deletePoet(poetModel.poets[index].id ?? -1);
                     },
                     onClickInfo: () {
                       AppNavigator.push(

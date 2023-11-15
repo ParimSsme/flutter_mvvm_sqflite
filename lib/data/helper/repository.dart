@@ -5,7 +5,7 @@ class Repository {
   static final DBConnection _databaseService = DBConnection();
   static late Database? _database;
 
-  insertData(table, Map<String, String> data) async {
+  insertData(table, data) async {
     _database = await _databaseService.database;
     return await _database?.insert(table, data);
   }

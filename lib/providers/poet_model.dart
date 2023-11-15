@@ -36,7 +36,7 @@ class PoetModel with ChangeNotifier {
 
   Future<void> addPoet(Poet poet) async {
     final poetService = PoetService();
-    poetService.addPoet(poet);
+    await poetService.addPoet(poet);
     fetchAndSetPoets();
     notifyListeners();
   }
@@ -45,7 +45,7 @@ class PoetModel with ChangeNotifier {
     final poetService = PoetService();
     final result = await poetService.updatePoet(newPoet);
     if(result == 1){
-      _poets[newPoet.id-1] = newPoet;
+      _poets[(newPoet.id ?? -1)-1] = newPoet;
       notifyListeners();
     }
   }
@@ -54,7 +54,7 @@ class PoetModel with ChangeNotifier {
     final poetService = PoetService();
     final result = await poetService.updatePoet(poet);
     if(result == 1){
-      _poets[poet.id-1] = poet;
+      _poets[(poet.id ?? -1)-1] = poet;
       notifyListeners();
     }
   }

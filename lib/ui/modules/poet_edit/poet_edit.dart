@@ -49,7 +49,7 @@ class PoetEditScreen extends StatelessWidget {
               const SizedBox(height: 20,),
 
               AppButton(
-                onPress: () => poetModel.updatePoet(poet.id, poet),
+                onPress: () => poetModel.updatePoet(poet.id ?? -1, poet),
                 text: "ویرایش",
                 variant: ButtonVariantEnum.contained,
               )
