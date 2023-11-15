@@ -33,7 +33,7 @@ class PoetInfoScreen extends StatelessWidget {
             const SizedBox(height: 5),
             AppIconButton(
               icon: poet.isFavorite ? Icons.favorite : Icons.favorite_border,
-              onPress: () => poetModel.addFavoritePoet(poet),
+              onPress: () => poetModel.toggleFavoritePoet(poet),
               color: ColorManager.primary,
             ),
             Text(

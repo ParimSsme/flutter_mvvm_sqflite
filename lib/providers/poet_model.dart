@@ -38,8 +38,12 @@ class PoetModel with ChangeNotifier {
 
   }
 
-  addFavoritePoet(Poet poet) async {
-    poet.isFavorite = true;
+  toggleFavoritePoet(Poet poet) async {
+    if (!poet.isFavorite){
+      poet.isFavorite = true;
+    } else {
+      poet.isFavorite = false;
+    }
     final poetService = PoetService();
     final result = await poetService.updatePoet(poet);
     if(result == 1){
