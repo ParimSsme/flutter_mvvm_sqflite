@@ -42,15 +42,15 @@ class PoetModel with ChangeNotifier {
   }
 
   Future<void> updatePoet(int id, Poet newPoet) async {
-
+    final poetService = PoetService();
+    final result = await poetService.updatePoet(newPoet);
+    if(result == 1){
+      _poets[newPoet.id-1] = newPoet;
+      notifyListeners();
+    }
   }
 
   toggleFavoritePoet(Poet poet) async {
-    if (!poet.isFavorite){
-      poet.isFavorite = true;
-    } else {
-      poet.isFavorite = false;
-    }
     final poetService = PoetService();
     final result = await poetService.updatePoet(poet);
     if(result == 1){
