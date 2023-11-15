@@ -5,10 +5,7 @@ import '../data/services/poet_services.dart';
 class PoetModel with ChangeNotifier {
   List<Poet> _poets = [];
 
-  getAllPoets() async {}
-
   List<Poet> get poets {
-    fetchAndSetPoets();
     return [..._poets];
   }
 
