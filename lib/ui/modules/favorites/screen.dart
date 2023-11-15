@@ -16,6 +16,12 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   var _isLoading = false;
 
   @override
+  void initState() {
+    // ...
+    super.initState();
+  }
+
+  @override
   void didChangeDependencies() {
     if (_isInit) {
       setState(() {

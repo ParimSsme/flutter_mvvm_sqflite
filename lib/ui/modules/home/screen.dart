@@ -16,6 +16,12 @@ class _HomeScreenState extends State<HomeScreen> {
   var _isLoading = false;
 
   @override
+  void initState() {
+    // ...
+    super.initState();
+  }
+
+  @override
   void didChangeDependencies() {
     if (_isInit) {
       setState(() {
