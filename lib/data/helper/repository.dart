@@ -30,6 +30,11 @@ class Repository
     return await _database?.query('poet', where: 'id=?', whereArgs: [itemId]);
   }
 
+  readDataByCondition(table, column, condition) async {
+    _database = await _databaseService.database;
+    return await _database?.query('poet', where: '$column=?', whereArgs: [condition]);
+  }
+
   updateData(table, data) async {
     _database = await _databaseService.database;
     return await _database

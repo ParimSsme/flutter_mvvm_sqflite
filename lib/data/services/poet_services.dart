@@ -24,6 +24,16 @@ class PoetService {
     return poetList;
   }
 
+  Future<List<Poet>> readAllFavoritePoets() async {
+    List<Poet> poetList = <Poet>[];
+    var result = await _repository.readDataByCondition(Poet.tableKey, Poet.isFavoriteKey, 1);
+    result.forEach((map) {
+      Poet poet = Poet.fromMap(map);
+      poetList.add(poet);
+    });
+    return poetList;
+  }
+
   Future<List<Poet>> searchPoets(String name) async {
     List<Poet> poetList = <Poet>[];
     var result =

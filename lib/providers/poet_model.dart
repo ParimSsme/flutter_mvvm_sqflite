@@ -20,6 +20,13 @@ class PoetModel with ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> fetchAndSetFavoritePoets() async {
+    final poetService = PoetService();
+    List<Poet> poets = await poetService.readAllFavoritePoets();
+    _poets = poets;
+    notifyListeners();
+  }
+
   Future<void> searchPoets(String name) async {
     final poetService = PoetService();
     List<Poet> poets = await poetService.searchPoets(name);

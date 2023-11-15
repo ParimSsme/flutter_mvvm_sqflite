@@ -5,6 +5,7 @@ import 'package:sqflite_mvvm_design/ui/modules/home/screen.dart';
 
 import '../../../config/router/routes.dart';
 import '../../../providers/poet_model.dart';
+import '../favorites/screen.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -20,7 +21,7 @@ class _TabsScreenState extends State<TabsScreen> {
 
   final tabs = [
     HomeScreen(),
-    HomeScreen(),
+    FavoritesScreen(),
   ];
 
   void _onItemTapped(int index) {
