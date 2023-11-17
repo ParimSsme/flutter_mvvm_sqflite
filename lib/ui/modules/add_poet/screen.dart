@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/enums/button_variant.dart';
@@ -6,6 +9,9 @@ import '../../../providers/poet_model.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_text_field.dart';
 import '../../widgets/select_photo/select_image_button.dart';
+import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart' as syspaths;
+import 'dart:io';
 
 class AddPoetScreen extends StatelessWidget {
   AddPoetScreen({super.key});
@@ -27,9 +33,12 @@ class AddPoetScreen extends StatelessWidget {
           child:  Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              SelectImageButton(
-
-              ),
+              SelectImageButton(onClickTakePhoto: (imageFile) async {
+                Uint8List imgbytes = await imageFile.readAsBytes();
+                String bs4str = base64.encode(imgbytes);
+                newPoet.image = bs4str;
+                print("sdhfkdsjhfk  $bs4str");
+              },),
               AppTextField(
                   hint: "Enter name",
                   onSubmit: (val){

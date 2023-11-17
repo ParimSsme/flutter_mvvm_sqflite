@@ -4,7 +4,9 @@ import 'package:sqflite_mvvm_design/ui/widgets/select_photo/dialogue_box.dart';
 import '../../../core/resources/color_manager.dart';
 
 class SelectImageButton extends StatefulWidget {
-  const SelectImageButton({Key? key}) : super(key: key);
+
+  final void Function(File imageFile) onClickTakePhoto;
+  const SelectImageButton({Key? key, required this.onClickTakePhoto}) : super(key: key);
 
   @override
   State<SelectImageButton> createState() => _SelectImageButtonState();
@@ -55,6 +57,7 @@ class _SelectImageButtonState extends State<SelectImageButton> {
                             setState((){
                               imageFile = image;
                             });
+                            widget.onClickTakePhoto(image);
                           }
                     },
                     context
