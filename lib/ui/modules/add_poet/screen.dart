@@ -37,7 +37,6 @@ class AddPoetScreen extends StatelessWidget {
                 Uint8List imgbytes = await imageFile.readAsBytes();
                 String bs4str = base64.encode(imgbytes);
                 newPoet.image = bs4str;
-                print("sdhfkdsjhfk  $bs4str");
               },),
               AppTextField(
                   hint: "Enter name",
