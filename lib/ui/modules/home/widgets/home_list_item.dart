@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
 import 'package:sqflite_mvvm_design/core/resources/color_manager.dart';
@@ -6,9 +8,8 @@ import '../../../../data/models/Poet.dart';
 import '../../../widgets/app_icon_button.dart';
 
 Widget HomeListItem(
-    {
-      required BuildContext context,
-      required Poet poet,
+    {required BuildContext context,
+    required Poet poet,
     double itemHeight = 0,
     double itemWidth = 0,
     required void Function() onClickDelete,
@@ -25,12 +26,18 @@ Widget HomeListItem(
             padding: EdgeInsets.all(10.0),
             child: Column(
               children: [
-                Image(
-                  image: AssetImage(
-                    '$imagePath/${poet.image}.$imageType',
-                  ),
-                  height: 110,
-                ),
+                (poet.image.length > 11)
+                    ? Image.memory(
+                        base64Decode(poet.image),
+                        fit: BoxFit.cover,
+                        height: 110,
+                      )
+                    : Image(
+                        image: AssetImage(
+                          '$imagePath/${poet.image}.$imageType',
+                        ),
+                        height: 110,
+                      ),
                 Text(
                   poet.name,
                   style: AppTheme.light.textTheme.bodyText1,
@@ -55,8 +62,9 @@ Widget HomeListItem(
             children: [
               AppIconButton(
                 icon: Icons.delete_outline,
-                onPress: () => _showMyDialog(context,
-                      poet.id, (){onClickDelete();}),
+                onPress: () => _showMyDialog(context, poet.id, () {
+                  onClickDelete();
+                }),
                 color: ColorManager.white,
               ),
               AppIconButton(
@@ -95,7 +103,7 @@ Future<void> _showMyDialog(
               color: ColorManager.red),
           textAlign: TextAlign.end,
         ),
-        content:const  SingleChildScrollView(
+        content: const SingleChildScrollView(
           child: ListBody(
             children: <Widget>[
               Text('آیا میخواهید این شاعر را حذف نمایید؟',
