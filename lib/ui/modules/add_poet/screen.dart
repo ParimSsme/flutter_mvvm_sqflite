@@ -16,7 +16,6 @@ class AddPoetScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     PoetModel poetModel = Provider.of<PoetModel>(context, listen: false);
 
     return Scaffold(
@@ -26,27 +25,28 @@ class AddPoetScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child:  Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              SelectImageButton(onClickTakePhoto: (imageFile) async {
-                Uint8List imgbytes = await imageFile.readAsBytes();
-                String bs4str = base64.encode(imgbytes);
-                newPoet.image = bs4str;
-              },),
+              SelectImageButton(
+                imageFile: null,
+                onClickTakePhoto: (imageFile) async {
+                  Uint8List imgbytes = await imageFile.readAsBytes();
+                  String bs4str = base64.encode(imgbytes);
+                  newPoet.image = bs4str;
+                },
+              ),
               AppTextField(
                   hint: "Enter name",
-                  onSubmit: (val){
+                  onSubmit: (val) {
                     newPoet.name = val;
-                  }
-              ),
+                  }),
               AppTextField(
                   hint: "Enter info",
-                  onSubmit: (val){
+                  onSubmit: (val) {
                     newPoet.info = val;
                   },
-                  maxLines: 10
-              ),
+                  maxLines: 10),
               Expanded(child: Container()),
               Row(
                 children: [
@@ -55,7 +55,7 @@ class AddPoetScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 12, right: 6),
                       child: AppButton(
                         text: 'لغو',
-                        onPress: () {  },
+                        onPress: () {},
                         variant: ButtonVariantEnum.text,
                       ),
                     ),

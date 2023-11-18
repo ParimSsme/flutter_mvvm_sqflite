@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +16,6 @@ class PoetEditScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     PoetModel poetModel = Provider.of<PoetModel>(context, listen: true);
     Poet poet = poetModel.findById(int.parse(id));
 
@@ -26,17 +26,22 @@ class PoetEditScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child:  Column(
+          child: Column(
             children: [
-              Image(image: AssetImage(
-                'assets/images/${poet.image}.jpg',),
+              Image(
+                image: AssetImage(
+                  'assets/images/${poet.image}.jpg',
+                ),
                 height: 140,
               ),
-              SelectImageButton(onClickTakePhoto: (imageFile) async {
-                Uint8List imgbytes = await imageFile.readAsBytes();
-                String bs4str = base64.encode(imgbytes);
-                poet.image = bs4str;
-              },),
+              SelectImageButton(
+                imageFile: File(poet.image),
+                onClickTakePhoto: (imageFile) async {
+                  Uint8List imgbytes = await imageFile.readAsBytes();
+                  String bs4str = base64.encode(imgbytes);
+                  poet.image = bs4str;
+                },
+              ),
               AppTextField(
                 hint: "نام",
                 value: poet.name,
@@ -44,7 +49,6 @@ class PoetEditScreen extends StatelessWidget {
                   poet.name = newVal;
                 },
               ),
-
               AppTextField(
                 hint: "توضیحات",
                 value: poet.info,
@@ -53,9 +57,9 @@ class PoetEditScreen extends StatelessWidget {
                   poet.info = newVal;
                 },
               ),
-
-              const SizedBox(height: 20,),
-
+              const SizedBox(
+                height: 20,
+              ),
               AppButton(
                 onPress: () => poetModel.updatePoet(poet.id ?? -1, poet),
                 text: "ویرایش",

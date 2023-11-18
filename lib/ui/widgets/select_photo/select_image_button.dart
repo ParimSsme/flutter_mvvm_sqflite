@@ -5,8 +5,14 @@ import '../../../core/resources/color_manager.dart';
 
 class SelectImageButton extends StatefulWidget {
 
+  final File? imageFile;
   final void Function(File imageFile) onClickTakePhoto;
-  const SelectImageButton({super.key, required this.onClickTakePhoto});
+
+  const SelectImageButton({
+    super.key,
+    required this.onClickTakePhoto,
+    required this.imageFile,
+  });
 
   @override
   State<SelectImageButton> createState() => _SelectImageButtonState();
@@ -18,6 +24,9 @@ class _SelectImageButtonState extends State<SelectImageButton> {
 
   @override
   Widget build(BuildContext context) {
+
+    imageFile = widget.imageFile;
+
     return Stack(
       children: [
         ClipRRect(
@@ -29,17 +38,18 @@ class _SelectImageButtonState extends State<SelectImageButton> {
               maxHeight: 100,
             ),
             color: ColorManager.background,
-            child: imageFile == null
-                ?  const Icon(
-              Icons.person,
-              color: ColorManager.gray,
-              size: 70,
-            ) : Image.file(
-              (imageFile!),
-              height: 100,
-              width: 100,
-              fit: BoxFit.cover,
-            ),
+            child: widget.imageFile == null
+                ? const Icon(
+                    Icons.person,
+                    color: ColorManager.gray,
+                    size: 70,
+                  )
+                : Image.file(
+                    (widget.imageFile!),
+                    height: 100,
+                    width: 100,
+                    fit: BoxFit.cover,
+                  ),
           ),
         ),
         Positioned(
@@ -51,25 +61,25 @@ class _SelectImageButtonState extends State<SelectImageButton> {
               child: InkWell(
                 splashColor: ColorManager.white, // Splash color
                 onTap: () {
-                  Dialog dialog = AddPhotoDialogue(
-                        (image) {
-                          if (image != null){
-                            setState((){
-                              imageFile = image;
-                            });
-                            widget.onClickTakePhoto(image);
-                          }
+                  Widget dialog = AddPhotoDialogue(
+                    context: context,
+                    onClickTakePhoto: (File? image) {
+                      if (image != null) {
+                        setState(() {
+                          imageFile = image;
+                        });
+                        widget.onClickTakePhoto(image);
+                      }
                     },
-                    context
                   );
                   showDialog(
-                      context: context, builder: (BuildContext context) => dialog);
+                      context: context,
+                      builder: (BuildContext context) => dialog);
                 },
-                child: const SizedBox(width: 35,
+                child: const SizedBox(
+                    width: 35,
                     height: 35,
-                    child: Icon(
-                      Icons.add, color: ColorManager.white
-                    )),
+                    child: Icon(Icons.add, color: ColorManager.white)),
               ),
             ),
           ),
