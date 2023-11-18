@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_text_field.dart';
@@ -5,6 +7,7 @@ import '../../../core/enums/button_variant.dart';
 import '../../../data/models/Poet.dart';
 import '../../../providers/poet_model.dart';
 import '../../widgets/app_button.dart';
+import '../../widgets/select_photo/select_image_button.dart';
 
 class PoetEditScreen extends StatelessWidget {
   final String id;
@@ -29,6 +32,11 @@ class PoetEditScreen extends StatelessWidget {
                 'assets/images/${poet.image}.jpg',),
                 height: 140,
               ),
+              SelectImageButton(onClickTakePhoto: (imageFile) async {
+                Uint8List imgbytes = await imageFile.readAsBytes();
+                String bs4str = base64.encode(imgbytes);
+                poet.image = bs4str;
+              },),
               AppTextField(
                 hint: "نام",
                 value: poet.name,
