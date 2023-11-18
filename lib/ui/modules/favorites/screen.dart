@@ -5,7 +5,7 @@ import '../../../providers/poet_model.dart';
 import '../home/widgets/home_list_item.dart';
 
 class FavoritesScreen extends StatefulWidget {
-  FavoritesScreen({super.key});
+  const FavoritesScreen({super.key});
 
   @override
   State<FavoritesScreen> createState() => _FavoritesScreenState();

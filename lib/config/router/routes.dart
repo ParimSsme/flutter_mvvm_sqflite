@@ -45,7 +45,7 @@ class AppNavigator {
 
     switch (settings.name) {
       case _Paths.splash:
-        return FadeRoute(page: SplashScreen());
+        return FadeRoute(page: const SplashScreen());
 
       case _Paths.tabs:
         return FadeRoute(page: const TabsScreen());

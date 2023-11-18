@@ -6,7 +6,7 @@ import '../../../core/resources/color_manager.dart';
 class SelectImageButton extends StatefulWidget {
 
   final void Function(File imageFile) onClickTakePhoto;
-  const SelectImageButton({Key? key, required this.onClickTakePhoto}) : super(key: key);
+  const SelectImageButton({super.key, required this.onClickTakePhoto});
 
   @override
   State<SelectImageButton> createState() => _SelectImageButtonState();

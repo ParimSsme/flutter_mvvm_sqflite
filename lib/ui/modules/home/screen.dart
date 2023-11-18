@@ -5,7 +5,7 @@ import 'package:sqflite_mvvm_design/ui/modules/home/widgets/home_list_item.dart'
 import '../../../config/router/routes.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

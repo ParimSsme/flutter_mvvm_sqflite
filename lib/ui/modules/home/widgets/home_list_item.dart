@@ -17,13 +17,13 @@ Widget HomeListItem(
     required void Function() onClickEdit}) {
   return Stack(
     children: [
-      Container(
+      SizedBox(
         height: itemHeight - 60,
         width: itemWidth,
         child: Card(
           elevation: 10,
           child: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
                 (poet.image.length > 11)

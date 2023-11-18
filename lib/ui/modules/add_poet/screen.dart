@@ -52,7 +52,7 @@ class AddPoetScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.only(left: 12, right: 6),
+                      padding: const EdgeInsets.only(left: 12, right: 6),
                       child: AppButton(
                         text: 'لغو',
                         onPress: () {  },
@@ -62,7 +62,7 @@ class AddPoetScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.only(left: 6, right: 12),
+                      padding: const EdgeInsets.only(left: 6, right: 12),
                       child: AppButton(
                         text: 'ذخیره',
                         variant: ButtonVariantEnum.text,
