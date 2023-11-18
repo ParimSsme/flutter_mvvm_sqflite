@@ -38,12 +38,10 @@ class AddPoetScreen extends StatelessWidget {
                 },
               ),
               AppTextField(
-                  hint: "Enter name",
                   onSubmit: (val) {
                     newPoet.name = val;
                   }),
               AppTextField(
-                  hint: "Enter info",
                   onSubmit: (val) {
                     newPoet.info = val;
                   },

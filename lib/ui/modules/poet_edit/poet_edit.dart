@@ -42,14 +42,12 @@ class PoetEditScreen extends StatelessWidget {
                 },
               ),
               AppTextField(
-                hint: "نام",
                 value: poet.name,
                 onSubmit: (newVal) {
                   poet.name = newVal;
                 },
               ),
               AppTextField(
-                hint: "توضیحات",
                 value: poet.info,
                 maxLines: 20,
                 onSubmit: (newVal) {
