@@ -25,7 +25,7 @@ class _SelectImageButtonState extends State<SelectImageButton> {
   @override
   Widget build(BuildContext context) {
 
-    imageFile = widget.imageFile;
+    // imageFile = widget.imageFile;
 
     return Stack(
       children: [
@@ -38,14 +38,14 @@ class _SelectImageButtonState extends State<SelectImageButton> {
               maxHeight: 100,
             ),
             color: ColorManager.background,
-            child: widget.imageFile == null
+            child: imageFile == null
                 ? const Icon(
                     Icons.person,
                     color: ColorManager.gray,
                     size: 70,
                   )
                 : Image.file(
-                    (widget.imageFile!),
+                    (imageFile!),
                     height: 100,
                     width: 100,
                     fit: BoxFit.cover,

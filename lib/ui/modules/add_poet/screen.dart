@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sqflite_mvvm_design/extension/extension.dart';
 import '../../../core/enums/button_variant.dart';
 import '../../../data/models/Poet.dart';
 import '../../../providers/poet_model.dart';
@@ -31,9 +32,9 @@ class AddPoetScreen extends StatelessWidget {
               SelectImageButton(
                 imageFile: null,
                 onClickTakePhoto: (imageFile) async {
-                  Uint8List imgbytes = await imageFile.readAsBytes();
-                  String bs4str = base64.encode(imgbytes);
-                  newPoet.image = bs4str;
+                  imageFile.encodeToString().then(
+                        (value) => newPoet.image = value,
+                  );
                 },
               ),
               AppTextField(
