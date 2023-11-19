@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sqflite_mvvm_design/core/resources/color_manager.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/screen.dart';
+import 'package:sqflite_mvvm_design/ui/modules/settings/screen.dart';
 
 import '../../../config/router/routes.dart';
 import '../../../providers/poet_model.dart';
@@ -22,6 +23,7 @@ class _TabsScreenState extends State<TabsScreen> {
   final tabs = [
     HomeScreen(),
     FavoritesScreen(),
+    SettingsScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -74,6 +76,10 @@ class _TabsScreenState extends State<TabsScreen> {
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite),
               label: 'علاقمندی ها',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'تنظیمات',
             ),
           ],
         ),

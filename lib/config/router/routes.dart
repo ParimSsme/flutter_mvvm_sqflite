@@ -3,6 +3,7 @@ import 'package:sqflite_mvvm_design/ui/modules/add_poet/screen.dart';
 import 'package:sqflite_mvvm_design/ui/modules/home/screen.dart';
 import 'package:sqflite_mvvm_design/ui/modules/poet_edit/poet_edit.dart';
 import 'package:sqflite_mvvm_design/ui/modules/poet_info/poet_info.dart';
+import 'package:sqflite_mvvm_design/ui/modules/settings/screen.dart';
 import 'package:sqflite_mvvm_design/ui/modules/tabs/screen.dart';
 import '../../ui/modules/splash_screen.dart';
 import 'fade_page_route.dart';
@@ -14,6 +15,7 @@ enum Routes {
   poetEdit,
   poetInfo,
   addPoet,
+  settings,
 }
 
 class _Paths {
@@ -23,6 +25,7 @@ class _Paths {
   static const String poetEdit = '/poetEdit';
   static const String poetInfo = '/poetInfo';
   static const String addPoet = '/addPoet';
+  static const String settings = '/settings';
 
   static const Map<Routes, String> _pathMap = {
     Routes.splash: _Paths.splash,
@@ -31,6 +34,7 @@ class _Paths {
     Routes.poetEdit: _Paths.poetEdit,
     Routes.poetInfo: _Paths.poetInfo,
     Routes.addPoet: _Paths.addPoet,
+    Routes.settings: _Paths.settings,
   };
 
   static String of(Routes route) => _pathMap[route] ?? splash;
@@ -61,6 +65,9 @@ class AppNavigator {
 
       case _Paths.addPoet:
         return FadeRoute(page: AddPoetScreen());
+
+      case _Paths.settings:
+        return FadeRoute(page: SettingsScreen());
 
       default:
         return FadeRoute(page: HomeScreen());
