@@ -8,7 +8,7 @@ import 'package:image_picker/image_picker.dart';
 
 class AddPhotoDialogue extends StatelessWidget {
 
-  final void Function(File? imageFile) onClickTakePhoto;
+  final void Function(String image) onClickTakePhoto;
   final BuildContext context;
 
   const AddPhotoDialogue({
@@ -40,7 +40,7 @@ class AddPhotoDialogue extends StatelessWidget {
                     source: ImageSource.gallery,
                     maxWidth: 600,
                   );
-                  onClickTakePhoto(File(imageFile?.path ?? ''));
+                  onClickTakePhoto(imageFile?.path ?? '');
                   Navigator.pop(context);
                 },
                 text: "گالری",
@@ -53,7 +53,7 @@ class AddPhotoDialogue extends StatelessWidget {
                     maxWidth: 1800,
                     maxHeight: 1800,
                   );
-                  onClickTakePhoto(File(pickedFile?.path ?? ''));
+                  onClickTakePhoto(pickedFile?.path ?? '');
                   Navigator.pop(context);
                 },
                 text: "کامره",

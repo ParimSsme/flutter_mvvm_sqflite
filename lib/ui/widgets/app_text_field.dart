@@ -39,6 +39,7 @@ class AppTextField extends StatelessWidget {
             child: TextField(
               maxLines: maxLines,
               textAlign: TextAlign.right,
+              textDirection: TextDirection.ltr,
               cursorColor: const Color.fromARGB(255, 192, 192, 192),
               style: const TextStyle(color: Color.fromARGB(255, 192, 192, 192)),
               decoration: InputDecoration(
@@ -48,7 +49,7 @@ class AppTextField extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   filled: true,
-                  labelText: "Email",
+                  labelText: label,
                   prefixIcon: Icon(
                     prefixIcon,
                     color: Theme.of(context).primaryColor,

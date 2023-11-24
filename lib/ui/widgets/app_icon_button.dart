@@ -12,8 +12,8 @@ class AppIconButton extends StatelessWidget {
     required this.icon,
     required this.onPress,
     required this.color,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

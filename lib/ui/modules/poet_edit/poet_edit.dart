@@ -4,9 +4,11 @@ import 'package:provider/provider.dart';
 import 'package:sqflite_mvvm_design/extension/extension.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_text_field.dart';
 import '../../../core/enums/button_variant.dart';
+import '../../../core/resources/color_manager.dart';
 import '../../../data/models/Poet.dart';
 import '../../../providers/poet_model.dart';
 import '../../widgets/app_button.dart';
+import '../../widgets/app_icon_button.dart';
 import '../../widgets/select_photo/select_image_button.dart';
 
 class PoetEditScreen extends StatelessWidget {
@@ -19,24 +21,31 @@ class PoetEditScreen extends StatelessWidget {
     Poet poet = poetModel.findById(int.parse(id));
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ویرایش'),
-      ),
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text('ویرایش'),
+          actions: [
+            AppIconButton(icon: Icons.chevron_right, onPress: (){
+              if(Navigator.of(context).canPop()) Navigator.of(context).pop();
+            }, color: ColorManager.white)
+          ],
+          leading: SizedBox(),
+        ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              Image(
-                image: AssetImage(
-                  'assets/images/${poet.image}.jpg',
-                ),
-                height: 140,
-              ),
+              // Image(
+              //   image: AssetImage(
+              //     'assets/images/${poet.image}.jpg',
+              //   ),
+              //   height: 140,
+              // ),
               SelectImageButton(
-                imageFile: File(poet.image),
+                image: poet.image,
                 onClickTakePhoto: (imageFile) async {
-                  imageFile.encodeToString().then(
+                  File(imageFile).encodeToString().then(
                         (value) => poet.image = value,
                   );
                 },

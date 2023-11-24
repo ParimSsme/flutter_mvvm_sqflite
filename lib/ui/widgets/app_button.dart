@@ -16,8 +16,8 @@ class AppButton extends StatelessWidget {
     required this.text,
     required this.variant,
     required this.onPress,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -52,16 +52,39 @@ Widget containedButton(
     void Function() onPress,
     String text
 ) {
-  return ElevatedButton(
-    style: ElevatedButton.styleFrom(
-        primary: ColorManager.primary,
-        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-        textStyle: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold)
+  return Container(
+    height: 45,
+    width: 150,
+    decoration: BoxDecoration(
+        color: ColorManager.primary,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(25.0),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12.withOpacity(0.2),
+            spreadRadius: 4,
+            blurRadius: 10,
+            offset: const Offset(0, 3),
+          )
+        ]
     ),
-    onPressed: () => onPress(),
-    child: Text(text),
+    child: Center(
+      child: GestureDetector(
+        onTap: () => onPress(),
+        child: Text(
+          text,
+          textAlign: TextAlign.left,
+          style: TextStyle(
+            fontFamily: "Netflix",
+            fontWeight: FontWeight.w600,
+            fontSize: 18,
+            letterSpacing: 0.0,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    ),
   );
 }
 

@@ -21,9 +21,9 @@ class _TabsScreenState extends State<TabsScreen> {
   final TextEditingController _searchController = TextEditingController();
 
   final tabs = [
-    HomeScreen(),
-    FavoritesScreen(),
-    SettingsScreen(),
+    const HomeScreen(),
+    const FavoritesScreen(),
+    const SettingsScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -57,15 +57,6 @@ class _TabsScreenState extends State<TabsScreen> {
         ),
         body: tabs[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
-          showSelectedLabels: true,
-          showUnselectedLabels: false,
-          type: BottomNavigationBarType.shifting,
-          selectedFontSize: 20,
-          selectedIconTheme:
-              const IconThemeData(color: ColorManager.primary, size: 35),
-          unselectedIconTheme: const IconThemeData(size: 35),
-          selectedItemColor: ColorManager.primary,
-          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           currentIndex: _selectedIndex, //New
           onTap: _onItemTapped,
           items: const <BottomNavigationBarItem>[

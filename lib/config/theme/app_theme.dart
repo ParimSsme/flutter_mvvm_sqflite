@@ -5,6 +5,16 @@ class AppTheme {
 
   static ThemeData get light {
     return ThemeData(
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        selectedIconTheme:
+        IconThemeData(color: ColorManager.primary, size: 35),
+        unselectedIconTheme: IconThemeData(size: 35),
+        showSelectedLabels: true,
+        showUnselectedLabels: false,
+        type: BottomNavigationBarType.shifting,
+        selectedItemColor: ColorManager.primary,
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+      ),
       primaryColor: ColorManager.primary,
       primaryColorLight: ColorManager.primary,
       cardColor: ColorManager.cardBackground,
@@ -48,78 +58,24 @@ class AppTheme {
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.normal,
         ),
-        headline2: TextStyle(
+        headlineMedium: TextStyle(
           color: Color(0x8a000000),
           fontSize: 20,
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.normal,
         ),
-        headline3: TextStyle(
-          color: Color(0x8a000000),
-          fontSize: null,
-          fontWeight: FontWeight.w400,
-          fontStyle: FontStyle.normal,
-        ),
-        headline4: TextStyle(
-          color: Color(0x8a000000),
-          fontSize: null,
-          fontWeight: FontWeight.w400,
-          fontStyle: FontStyle.normal,
-        ),
-        headline5: TextStyle(
-          color: Color(0xdd000000),
-          fontSize: null,
-          fontWeight: FontWeight.w400,
-          fontStyle: FontStyle.normal,
-        ),
-        headline6: TextStyle(
-          color: Color(0xdd000000),
-          fontSize: null,
-          fontWeight: FontWeight.w400,
-          fontStyle: FontStyle.normal,
-        ),
-        subtitle1: TextStyle(
-          color: Color(0xdd000000),
-          fontSize: null,
-          fontWeight: FontWeight.w400,
-          fontStyle: FontStyle.normal,
-        ),
-        bodyText1: TextStyle(
+        bodyLarge: TextStyle(
           color: Color(0xdd000000),
           fontSize: 20,
           fontWeight: FontWeight.w400,
           fontStyle: FontStyle.normal,
         ),
-        bodyText2: TextStyle(
+        bodyMedium: TextStyle(
           color: Color(0xdd000000),
           fontSize: null,
           fontWeight: FontWeight.w400,
           fontStyle: FontStyle.normal,
-        ),
-        caption: TextStyle(
-          color: Color(0x8a000000),
-          fontSize: null,
-          fontWeight: FontWeight.w400,
-          fontStyle: FontStyle.normal,
-        ),
-        button: TextStyle(
-          color: Color(0xdd000000),
-          fontSize: null,
-          fontWeight: FontWeight.w400,
-          fontStyle: FontStyle.normal,
-        ),
-        subtitle2: TextStyle(
-          color: Color(0xff000000),
-          fontSize: null,
-          fontWeight: FontWeight.w400,
-          fontStyle: FontStyle.normal,
-        ),
-        overline: TextStyle(
-          color: Color(0xff000000),
-          fontSize: null,
-          fontWeight: FontWeight.w400,
-          fontStyle: FontStyle.normal,
-        ),
+        )
       ),
     );
   }

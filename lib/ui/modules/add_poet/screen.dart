@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -30,9 +30,9 @@ class AddPoetScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               SelectImageButton(
-                imageFile: null,
+                image: '',
                 onClickTakePhoto: (imageFile) async {
-                  imageFile.encodeToString().then(
+                  File(imageFile).encodeToString().then(
                         (value) => newPoet.image = value,
                   );
                 },

@@ -17,7 +17,14 @@ class PoetInfoScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(poet.name),
+        actions: [
+          AppIconButton(icon: Icons.chevron_right, onPress: (){
+            if(Navigator.of(context).canPop()) Navigator.of(context).pop();
+          }, color: ColorManager.white)
+        ],
+        leading: SizedBox(),
       ),
       body: SingleChildScrollView(
           child: Padding(

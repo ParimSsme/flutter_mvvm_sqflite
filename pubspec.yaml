@@ -38,6 +38,8 @@ dependencies:
   flutter_lints: ^3.0.1
   sqflite: ^2.3.0
   image_picker: ^1.0.4
+  file_picker: ^6.1.1
+  permission_handler: ^11.0.1
 
 dev_dependencies:
   flutter_test:
