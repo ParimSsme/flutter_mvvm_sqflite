@@ -40,6 +40,7 @@ dependencies:
   image_picker: ^1.0.4
   file_picker: ^6.1.1
   permission_handler: ^11.0.1
+  filesystem_picker: ^4.0.0
 
 dev_dependencies:
   flutter_test:
