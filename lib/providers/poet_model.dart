@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../data/models/Poet.dart';
-import '../data/services/poet_services.dart';
+import '../data/local/models/Poet.dart';
+import '../data/local/services/poet_services.dart';
 
 class PoetModel with ChangeNotifier {
   List<Poet> _poets = [];

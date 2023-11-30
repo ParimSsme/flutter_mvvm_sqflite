@@ -5,7 +5,7 @@ import 'package:sqflite_mvvm_design/extension/extension.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_text_field.dart';
 import '../../../core/enums/button_variant.dart';
 import '../../../core/resources/color_manager.dart';
-import '../../../data/models/Poet.dart';
+import '../../../data/local/models/Poet.dart';
 import '../../../providers/poet_model.dart';
 import '../../widgets/app_button.dart';
 import '../../widgets/app_icon_button.dart';

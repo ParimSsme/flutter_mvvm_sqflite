@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_icon_button.dart';
 import '../../../config/theme/app_theme.dart';
 import '../../../core/resources/color_manager.dart';
-import '../../../data/models/Poet.dart';
+import '../../../data/local/models/Poet.dart';
 import '../../../providers/poet_model.dart';
 
 class PoetInfoScreen extends StatelessWidget {

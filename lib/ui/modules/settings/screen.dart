@@ -7,7 +7,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_mvvm_design/ui/widgets/app_button.dart';
 import '../../../core/enums/button_variant.dart';
-import '../../../data/helper/db_conection.dart';
+import '../../../data/local/helper/db_conection.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});

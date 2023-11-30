@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sqflite_mvvm_design/config/theme/app_theme.dart';
 import 'package:sqflite_mvvm_design/core/resources/color_manager.dart';
 import '../../../../core/resources/assets_manager.dart';
-import '../../../../data/models/Poet.dart';
+import '../../../../data/local/models/Poet.dart';
 import '../../../widgets/app_icon_button.dart';
 
 Widget HomeListItem(

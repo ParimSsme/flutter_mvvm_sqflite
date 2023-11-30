@@ -1,5 +1,5 @@
-import 'package:sqflite_mvvm_design/data/models/Poet.dart';
 import '../helper/repository.dart';
+import '../models/Poet.dart';
 
 class PoetService {
   late Repository _repository;
